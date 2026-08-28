@@ -1,0 +1,52 @@
+[project]
+name = "inviol-image-analyser-assignment"
+version = "0.1.0"
+description = "An image analysis service using FastAPI."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.119.0",
+    "pydantic>=2.12.0",
+    "python-multipart>=0.0.20",
+    "uvicorn>=0.37.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.2,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.31.7",
+    "pytest>=8.4.2",
+    "ruff>=0.14.0",
+]
+
+[tool.ruff]
+line-length = 120
+extend-exclude = [
+    ".venv",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "C",  # flake8-comprehensions
+    "B",  # flake8-bugbear
+    "N",  # pep8-naming
+]
+ignore = [
+    "B008",  # Do not perform function calls in argument defaults - too many false positives especially with FastAPI
+    "E501",  # Line too long - handled by ruff formatter
+]
+
+[tool.pyright]
+reportUnusedCallResult = "none"
+
+[tool.uv.workspace]
+members = [
+    "bleh/hmmst",
+]

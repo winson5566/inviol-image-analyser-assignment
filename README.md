@@ -389,3 +389,8 @@ uv run --group model-evaluation python -m tools.model_spike.run
 | Prompts and confidence thresholds were adjusted using only the six sample images, so they may not generalize to other environments. | Expand the labelled dataset across cameras, lighting, viewpoints, PPE styles and work environments, then fine-tune YOLO-World and recalibrate the detection thresholds. |
 | `Person near forklift` uses the shortest 2D gap between the person and forklift bounding boxes, normalized by the image diagonal. This is affected by perspective and does not represent physical distance. | Calibrate fixed cameras and project detections onto the ground plane, or use depth estimation to calculate real-world distance. |
 | The current configuration and risk scores are example policies that have not been professionally validated. | Review the rules, thresholds and risk levels with workplace-safety specialists and version the approved policy. |
+| On a fresh local setup, the first `/analyse` request downloads the 338 MB CLIP ViT-B/32 weights required to generate YOLO-World text embeddings. | Precompute the configured prompt embeddings in the YOLO-World checkpoint, or download the CLIP weights during environment setup. |
+
+## AI Usage Declaration
+
+Cursor was used only to assist with Python code generation and README organization. All architecture and design decisions, model and safety-rule evaluation, code review, testing, validation and final integration were completed by me.

@@ -21,6 +21,12 @@ dev = [
     "pytest>=8.4.2",
     "ruff>=0.14.0",
 ]
+model-evaluation = [
+    "clip @ git+https://github.com/ultralytics/CLIP.git",
+    "torchvision>=0.21.0",
+    "transformers>=4.49.0",
+    "ultralytics>=8.3.0",
+]
 
 [tool.ruff]
 line-length = 120

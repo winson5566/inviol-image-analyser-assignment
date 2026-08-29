@@ -8,3 +8,9 @@ wheels/
 
 # Virtual environments
 .venv
+
+# macOS metadata
+.DS_Store
+
+# Downloaded CLIP model weights
+/weights/clip/*.pt

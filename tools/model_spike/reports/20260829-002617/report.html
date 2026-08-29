@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Object Detection Model Spike</title>
+  <style>
+    :root { color-scheme: light dark; --border: #77808c55; --muted: #7b8490; }
+    * { box-sizing: border-box; }
+    body { font-family: ui-sans-serif, system-ui, sans-serif; margin: 0; padding: 28px; line-height: 1.45; }
+    h1, h2 { margin-bottom: 8px; }
+    .meta { color: var(--muted); margin-bottom: 14px; }
+    .badge { display: inline-block; border: 1px solid var(--border); border-radius: 999px; padding: 3px 9px; margin: 2px; font-size: 12px; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; margin: 18px 0 30px; }
+    table { border-collapse: collapse; width: 100%; min-width: 900px; }
+    th, td { border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); padding: 10px; vertical-align: top; text-align: left; }
+    th:last-child, td:last-child { border-right: 0; }
+    tr:last-child td { border-bottom: 0; }
+    th { position: sticky; top: 0; background: Canvas; z-index: 1; }
+    .comparison td { width: 260px; }
+    .comparison img { display: block; width: 100%; min-width: 240px; border-radius: 6px; background: #111; }
+    .zoomable { display: block; cursor: zoom-in; }
+    .caption { margin-top: 8px; font-size: 13px; }
+    .labels { color: var(--muted); overflow-wrap: anywhere; }
+    .error { color: #d33; white-space: pre-wrap; overflow-wrap: anywhere; }
+    code { font-size: 12px; }
+    dialog { max-width: 96vw; max-height: 96vh; border: 0; padding: 0; background: transparent; }
+    dialog::backdrop { background: rgb(0 0 0 / 85%); }
+    .lightbox-frame { position: relative; padding: 12px; border-radius: 10px; background: #111; color: #fff; }
+    .lightbox-frame img { display: block; max-width: 92vw; max-height: 84vh; object-fit: contain; border-radius: 6px; }
+    .lightbox-caption { padding: 10px 42px 0 2px; font-size: 14px; }
+    .lightbox-close { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border: 0; border-radius: 999px; background: rgb(0 0 0 / 72%); color: #fff; font-size: 26px; line-height: 1; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Object Detection Model Spike</h1>
+  <div class="meta">Generated 2026-08-29T00:26:17+00:00 · device: <code>cpu</code> · one timed inference per image after warm-up · class-aware NMS IoU: 0.50</div>
+  <div><span class='badge'>person</span><span class='badge'>material handling vehicle</span><span class='badge'>safety hat</span><span class='badge'>safety vest</span></div>
+
+  <h2>Run summary</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Model</th><th>Threshold</th><th>Load</th><th>Median inference across sample images (after warm-up)</th><th>Status</th></tr></thead>
+      <tbody><tr><td>YOLOv8n (COCO baseline)</td><td>0.03</td><td>715 ms</td><td>36 ms</td><td>Completed</td></tr><tr><td>YOLOv8s-World-v2</td><td>0.04</td><td>28722 ms</td><td>87 ms</td><td>Completed</td></tr><tr><td>OWLv2 base patch16 ensemble</td><td>0.10</td><td>4141 ms</td><td>6228 ms</td><td>Completed</td></tr><tr><td>Grounding DINO tiny</td><td>0.10</td><td>3202 ms</td><td>9271 ms</td><td>Completed</td></tr></tbody>
+    </table>
+  </div>
+
+  <h2>Visual comparison</h2>
+  <div class="table-wrap comparison">
+    <table>
+      <thead><tr><th>YOLOv8n (COCO baseline)</th><th>YOLOv8s-World-v2</th><th>OWLv2 base patch16 ensemble</th><th>Grounding DINO tiny</th></tr></thead>
+      <tbody><tr><td><a class='zoomable' href='annotated/yolov8n/image_01.jpg' data-caption='YOLOv8n (COCO baseline) on image_01.png'><img loading='lazy' src='annotated/yolov8n/image_01.jpg' alt='YOLOv8n (COCO baseline) on image_01.png'></a><div class='caption'><strong>image_01.png</strong> · 32 ms · 2 detections</div><div class='caption labels'>person × 2</div></td><td><a class='zoomable' href='annotated/yolo_world/image_01.jpg' data-caption='YOLOv8s-World-v2 on image_01.png'><img loading='lazy' src='annotated/yolo_world/image_01.jpg' alt='YOLOv8s-World-v2 on image_01.png'></a><div class='caption'><strong>image_01.png</strong> · 100 ms · 6 detections</div><div class='caption labels'>material handling vehicle × 1, person × 2, safety hat × 2, safety vest × 1</div></td><td><a class='zoomable' href='annotated/owlv2/image_01.jpg' data-caption='OWLv2 base patch16 ensemble on image_01.png'><img loading='lazy' src='annotated/owlv2/image_01.jpg' alt='OWLv2 base patch16 ensemble on image_01.png'></a><div class='caption'><strong>image_01.png</strong> · 5744 ms · 10 detections</div><div class='caption labels'>material handling vehicle × 4, person × 2, safety hat × 2, safety vest × 2</div></td><td><a class='zoomable' href='annotated/grounding_dino/image_01.jpg' data-caption='Grounding DINO tiny on image_01.png'><img loading='lazy' src='annotated/grounding_dino/image_01.jpg' alt='Grounding DINO tiny on image_01.png'></a><div class='caption'><strong>image_01.png</strong> · 9169 ms · 20 detections</div><div class='caption labels'>material handling vehicle × 7, safety hat × 10, safety vest × 3</div></td></tr><tr><td><a class='zoomable' href='annotated/yolov8n/image_02.jpg' data-caption='YOLOv8n (COCO baseline) on image_02.png'><img loading='lazy' src='annotated/yolov8n/image_02.jpg' alt='YOLOv8n (COCO baseline) on image_02.png'></a><div class='caption'><strong>image_02.png</strong> · 34 ms · 2 detections</div><div class='caption labels'>person × 2</div></td><td><a class='zoomable' href='annotated/yolo_world/image_02.jpg' data-caption='YOLOv8s-World-v2 on image_02.png'><img loading='lazy' src='annotated/yolo_world/image_02.jpg' alt='YOLOv8s-World-v2 on image_02.png'></a><div class='caption'><strong>image_02.png</strong> · 141 ms · 6 detections</div><div class='caption labels'>person × 2, safety hat × 2, safety vest × 2</div></td><td><a class='zoomable' href='annotated/owlv2/image_02.jpg' data-caption='OWLv2 base patch16 ensemble on image_02.png'><img loading='lazy' src='annotated/owlv2/image_02.jpg' alt='OWLv2 base patch16 ensemble on image_02.png'></a><div class='caption'><strong>image_02.png</strong> · 6090 ms · 8 detections</div><div class='caption labels'>material handling vehicle × 1, person × 3, safety hat × 2, safety vest × 2</div></td><td><a class='zoomable' href='annotated/grounding_dino/image_02.jpg' data-caption='Grounding DINO tiny on image_02.png'><img loading='lazy' src='annotated/grounding_dino/image_02.jpg' alt='Grounding DINO tiny on image_02.png'></a><div class='caption'><strong>image_02.png</strong> · 9252 ms · 23 detections</div><div class='caption labels'>material handling vehicle × 7, safety hat × 10, safety vest × 6</div></td></tr><tr><td><a class='zoomable' href='annotated/yolov8n/image_03.jpg' data-caption='YOLOv8n (COCO baseline) on image_03.png'><img loading='lazy' src='annotated/yolov8n/image_03.jpg' alt='YOLOv8n (COCO baseline) on image_03.png'></a><div class='caption'><strong>image_03.png</strong> · 37 ms · 3 detections</div><div class='caption labels'>person × 3</div></td><td><a class='zoomable' href='annotated/yolo_world/image_03.jpg' data-caption='YOLOv8s-World-v2 on image_03.png'><img loading='lazy' src='annotated/yolo_world/image_03.jpg' alt='YOLOv8s-World-v2 on image_03.png'></a><div class='caption'><strong>image_03.png</strong> · 132 ms · 6 detections</div><div class='caption labels'>material handling vehicle × 1, person × 3, safety hat × 1, safety vest × 1</div></td><td><a class='zoomable' href='annotated/owlv2/image_03.jpg' data-caption='OWLv2 base patch16 ensemble on image_03.png'><img loading='lazy' src='annotated/owlv2/image_03.jpg' alt='OWLv2 base patch16 ensemble on image_03.png'></a><div class='caption'><strong>image_03.png</strong> · 6326 ms · 11 detections</div><div class='caption labels'>material handling vehicle × 4, person × 2, safety hat × 2, safety vest × 3</div></td><td><a class='zoomable' href='annotated/grounding_dino/image_03.jpg' data-caption='Grounding DINO tiny on image_03.png'><img loading='lazy' src='annotated/grounding_dino/image_03.jpg' alt='Grounding DINO tiny on image_03.png'></a><div class='caption'><strong>image_03.png</strong> · 9531 ms · 23 detections</div><div class='caption labels'>material handling vehicle × 8, safety hat × 10, safety vest × 5</div></td></tr><tr><td><a class='zoomable' href='annotated/yolov8n/image_04.jpg' data-caption='YOLOv8n (COCO baseline) on image_04.png'><img loading='lazy' src='annotated/yolov8n/image_04.jpg' alt='YOLOv8n (COCO baseline) on image_04.png'></a><div class='caption'><strong>image_04.png</strong> · 37 ms · 2 detections</div><div class='caption labels'>person × 2</div></td><td><a class='zoomable' href='annotated/yolo_world/image_04.jpg' data-caption='YOLOv8s-World-v2 on image_04.png'><img loading='lazy' src='annotated/yolo_world/image_04.jpg' alt='YOLOv8s-World-v2 on image_04.png'></a><div class='caption'><strong>image_04.png</strong> · 73 ms · 4 detections</div><div class='caption labels'>person × 2, safety hat × 1, safety vest × 1</div></td><td><a class='zoomable' href='annotated/owlv2/image_04.jpg' data-caption='OWLv2 base patch16 ensemble on image_04.png'><img loading='lazy' src='annotated/owlv2/image_04.jpg' alt='OWLv2 base patch16 ensemble on image_04.png'></a><div class='caption'><strong>image_04.png</strong> · 6620 ms · 5 detections</div><div class='caption labels'>material handling vehicle × 1, person × 2, safety hat × 1, safety vest × 1</div></td><td><a class='zoomable' href='annotated/grounding_dino/image_04.jpg' data-caption='Grounding DINO tiny on image_04.png'><img loading='lazy' src='annotated/grounding_dino/image_04.jpg' alt='Grounding DINO tiny on image_04.png'></a><div class='caption'><strong>image_04.png</strong> · 9140 ms · 20 detections</div><div class='caption labels'>material handling vehicle × 6, safety hat × 10, safety vest × 4</div></td></tr><tr><td><a class='zoomable' href='annotated/yolov8n/image_05.jpg' data-caption='YOLOv8n (COCO baseline) on image_05.png'><img loading='lazy' src='annotated/yolov8n/image_05.jpg' alt='YOLOv8n (COCO baseline) on image_05.png'></a><div class='caption'><strong>image_05.png</strong> · 39 ms · 2 detections</div><div class='caption labels'>person × 2</div></td><td><a class='zoomable' href='annotated/yolo_world/image_05.jpg' data-caption='YOLOv8s-World-v2 on image_05.png'><img loading='lazy' src='annotated/yolo_world/image_05.jpg' alt='YOLOv8s-World-v2 on image_05.png'></a><div class='caption'><strong>image_05.png</strong> · 62 ms · 5 detections</div><div class='caption labels'>material handling vehicle × 1, person × 2, safety hat × 1, safety vest × 1</div></td><td><a class='zoomable' href='annotated/owlv2/image_05.jpg' data-caption='OWLv2 base patch16 ensemble on image_05.png'><img loading='lazy' src='annotated/owlv2/image_05.jpg' alt='OWLv2 base patch16 ensemble on image_05.png'></a><div class='caption'><strong>image_05.png</strong> · 6348 ms · 12 detections</div><div class='caption labels'>material handling vehicle × 6, person × 2, safety hat × 1, safety vest × 3</div></td><td><a class='zoomable' href='annotated/grounding_dino/image_05.jpg' data-caption='Grounding DINO tiny on image_05.png'><img loading='lazy' src='annotated/grounding_dino/image_05.jpg' alt='Grounding DINO tiny on image_05.png'></a><div class='caption'><strong>image_05.png</strong> · 9289 ms · 15 detections</div><div class='caption labels'>material handling vehicle × 5, safety hat × 5, safety vest × 5</div></td></tr><tr><td><a class='zoomable' href='annotated/yolov8n/image_06.jpg' data-caption='YOLOv8n (COCO baseline) on image_06.png'><img loading='lazy' src='annotated/yolov8n/image_06.jpg' alt='YOLOv8n (COCO baseline) on image_06.png'></a><div class='caption'><strong>image_06.png</strong> · 35 ms · 2 detections</div><div class='caption labels'>person × 2</div></td><td><a class='zoomable' href='annotated/yolo_world/image_06.jpg' data-caption='YOLOv8s-World-v2 on image_06.png'><img loading='lazy' src='annotated/yolo_world/image_06.jpg' alt='YOLOv8s-World-v2 on image_06.png'></a><div class='caption'><strong>image_06.png</strong> · 68 ms · 5 detections</div><div class='caption labels'>material handling vehicle × 1, person × 2, safety hat × 1, safety vest × 1</div></td><td><a class='zoomable' href='annotated/owlv2/image_06.jpg' data-caption='OWLv2 base patch16 ensemble on image_06.png'><img loading='lazy' src='annotated/owlv2/image_06.jpg' alt='OWLv2 base patch16 ensemble on image_06.png'></a><div class='caption'><strong>image_06.png</strong> · 6131 ms · 10 detections</div><div class='caption labels'>material handling vehicle × 2, person × 2, safety hat × 3, safety vest × 3</div></td><td><a class='zoomable' href='annotated/grounding_dino/image_06.jpg' data-caption='Grounding DINO tiny on image_06.png'><img loading='lazy' src='annotated/grounding_dino/image_06.jpg' alt='Grounding DINO tiny on image_06.png'></a><div class='caption'><strong>image_06.png</strong> · 9693 ms · 18 detections</div><div class='caption labels'>material handling vehicle × 5, safety hat × 8, safety vest × 5</div></td></tr></tbody>
+    </table>
+  </div>
+
+  <p class="meta">This is a qualitative feasibility spike over synthetic sample images, not a statistically meaningful accuracy benchmark. Confidence scores are not calibrated across model families.</p>
+
+  <dialog id="lightbox" aria-label="Enlarged detection result">
+    <div class="lightbox-frame">
+      <button class="lightbox-close" type="button" aria-label="Close enlarged image">×</button>
+      <img alt="">
+      <div class="lightbox-caption"></div>
+    </div>
+  </dialog>
+  <script>
+    const lightbox = document.querySelector("#lightbox");
+    const lightboxImage = lightbox.querySelector("img");
+    const lightboxCaption = lightbox.querySelector(".lightbox-caption");
+
+    document.querySelectorAll(".zoomable").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        lightboxImage.src = link.href;
+        lightboxImage.alt = link.dataset.caption;
+        lightboxCaption.textContent = link.dataset.caption;
+        lightbox.showModal();
+      });
+    });
+
+    lightbox.querySelector(".lightbox-close").addEventListener("click", () => lightbox.close());
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) lightbox.close();
+    });
+    lightbox.addEventListener("close", () => {
+      lightboxImage.src = "";
+    });
+  </script>
+</body>
+</html>

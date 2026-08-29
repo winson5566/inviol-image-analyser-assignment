@@ -1,0 +1,2449 @@
+{
+  "created_at": "2026-08-29T00:26:17+00:00",
+  "device": "cpu",
+  "nms_iou": 0.5,
+  "prompts": [
+    "person",
+    "material handling vehicle",
+    "safety hat",
+    "safety vest"
+  ],
+  "images": [
+    "image_01.png",
+    "image_02.png",
+    "image_03.png",
+    "image_04.png",
+    "image_05.png",
+    "image_06.png"
+  ],
+  "models": [
+    {
+      "name": "yolov8n",
+      "display_name": "YOLOv8n (COCO baseline)",
+      "threshold": 0.03,
+      "load_ms": 715.4577081091702,
+      "error": null,
+      "images": [
+        {
+          "image": "image_01.png",
+          "inference_ms": 32.174,
+          "annotated_image": "annotated/yolov8n/image_01.jpg",
+          "detections": [
+            {
+              "label": "person",
+              "confidence": 0.903817,
+              "box": {
+                "x_min": 322.6411437988281,
+                "y_min": 351.0935974121094,
+                "x_max": 606.6610107421875,
+                "y_max": 934.9034423828125
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.272205,
+              "box": {
+                "x_min": 709.1566772460938,
+                "y_min": 163.97952270507812,
+                "x_max": 787.3277587890625,
+                "y_max": 418.0654602050781
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_02.png",
+          "inference_ms": 34.262,
+          "annotated_image": "annotated/yolov8n/image_02.jpg",
+          "detections": [
+            {
+              "label": "person",
+              "confidence": 0.900022,
+              "box": {
+                "x_min": 520.7477416992188,
+                "y_min": 182.9645538330078,
+                "x_max": 713.8333129882812,
+                "y_max": 908.7421264648438
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.893038,
+              "box": {
+                "x_min": 748.398193359375,
+                "y_min": 158.82005310058594,
+                "x_max": 957.7132568359375,
+                "y_max": 888.2976684570312
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_03.png",
+          "inference_ms": 37.294,
+          "annotated_image": "annotated/yolov8n/image_03.jpg",
+          "detections": [
+            {
+              "label": "person",
+              "confidence": 0.89374,
+              "box": {
+                "x_min": 365.9953918457031,
+                "y_min": 319.31683349609375,
+                "x_max": 571.7402954101562,
+                "y_max": 997.5799560546875
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.336957,
+              "box": {
+                "x_min": 1010.03173828125,
+                "y_min": 374.11737060546875,
+                "x_max": 1146.8402099609375,
+                "y_max": 569.2929077148438
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.117343,
+              "box": {
+                "x_min": 1011.5491943359375,
+                "y_min": 377.2523193359375,
+                "x_max": 1073.917236328125,
+                "y_max": 553.9990234375
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_04.png",
+          "inference_ms": 37.421,
+          "annotated_image": "annotated/yolov8n/image_04.jpg",
+          "detections": [
+            {
+              "label": "person",
+              "confidence": 0.913729,
+              "box": {
+                "x_min": 369.25811767578125,
+                "y_min": 231.391845703125,
+                "x_max": 587.5514526367188,
+                "y_max": 990.655517578125
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.886199,
+              "box": {
+                "x_min": 880.5731201171875,
+                "y_min": 224.384765625,
+                "x_max": 1117.5728759765625,
+                "y_max": 1000.250244140625
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_05.png",
+          "inference_ms": 38.519,
+          "annotated_image": "annotated/yolov8n/image_05.jpg",
+          "detections": [
+            {
+              "label": "person",
+              "confidence": 0.910185,
+              "box": {
+                "x_min": 288.3414001464844,
+                "y_min": 313.93536376953125,
+                "x_max": 512.3161010742188,
+                "y_max": 1016.85791015625
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.864721,
+              "box": {
+                "x_min": 789.801513671875,
+                "y_min": 303.6625671386719,
+                "x_max": 985.744140625,
+                "y_max": 774.5803833007812
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_06.png",
+          "inference_ms": 35.28,
+          "annotated_image": "annotated/yolov8n/image_06.jpg",
+          "detections": [
+            {
+              "label": "person",
+              "confidence": 0.890253,
+              "box": {
+                "x_min": 930.2708740234375,
+                "y_min": 121.44668579101562,
+                "x_max": 1224.5494384765625,
+                "y_max": 1015.5946655273438
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.289718,
+              "box": {
+                "x_min": 559.9710083007812,
+                "y_min": 244.19757080078125,
+                "x_max": 688.0272216796875,
+                "y_max": 426.9189758300781
+              }
+            }
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "yolo_world",
+      "display_name": "YOLOv8s-World-v2",
+      "threshold": 0.035,
+      "load_ms": 28722.320459317416,
+      "error": null,
+      "images": [
+        {
+          "image": "image_01.png",
+          "inference_ms": 100.229,
+          "annotated_image": "annotated/yolo_world/image_01.jpg",
+          "detections": [
+            {
+              "label": "person",
+              "confidence": 0.921618,
+              "box": {
+                "x_min": 320.1395568847656,
+                "y_min": 347.6468200683594,
+                "x_max": 606.9861450195312,
+                "y_max": 939.0303344726562
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.604814,
+              "box": {
+                "x_min": 705.9183959960938,
+                "y_min": 167.8585662841797,
+                "x_max": 785.818603515625,
+                "y_max": 361.4328308105469
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.548749,
+              "box": {
+                "x_min": 629.3093872070312,
+                "y_min": 109.7858657836914,
+                "x_max": 855.8250732421875,
+                "y_max": 673.988037109375
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.391376,
+              "box": {
+                "x_min": 451.7197265625,
+                "y_min": 350.3218688964844,
+                "x_max": 538.6248779296875,
+                "y_max": 406.8489990234375
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.151672,
+              "box": {
+                "x_min": 460.7635498046875,
+                "y_min": 444.0921630859375,
+                "x_max": 588.8944702148438,
+                "y_max": 666.4506225585938
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.035638,
+              "box": {
+                "x_min": 731.306396484375,
+                "y_min": 167.8728485107422,
+                "x_max": 761.1886596679688,
+                "y_max": 197.0606689453125
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_02.png",
+          "inference_ms": 140.681,
+          "annotated_image": "annotated/yolo_world/image_02.jpg",
+          "detections": [
+            {
+              "label": "person",
+              "confidence": 0.926652,
+              "box": {
+                "x_min": 748.3623046875,
+                "y_min": 158.71560668945312,
+                "x_max": 959.8171997070312,
+                "y_max": 891.7395629882812
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.903228,
+              "box": {
+                "x_min": 520.8976440429688,
+                "y_min": 184.8170623779297,
+                "x_max": 712.1680297851562,
+                "y_max": 908.7388916015625
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.544232,
+              "box": {
+                "x_min": 797.8380737304688,
+                "y_min": 158.6611785888672,
+                "x_max": 895.4766845703125,
+                "y_max": 227.5177764892578
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.424142,
+              "box": {
+                "x_min": 575.949462890625,
+                "y_min": 184.77928161621094,
+                "x_max": 688.1128540039062,
+                "y_max": 255.60630798339844
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.074543,
+              "box": {
+                "x_min": 785.7059326171875,
+                "y_min": 273.0956115722656,
+                "x_max": 918.2705078125,
+                "y_max": 539.7926635742188
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.056012,
+              "box": {
+                "x_min": 521.9165649414062,
+                "y_min": 300.8739929199219,
+                "x_max": 691.6903686523438,
+                "y_max": 573.1170043945312
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_03.png",
+          "inference_ms": 131.789,
+          "annotated_image": "annotated/yolo_world/image_03.jpg",
+          "detections": [
+            {
+              "label": "person",
+              "confidence": 0.906,
+              "box": {
+                "x_min": 366.12261962890625,
+                "y_min": 312.7999572753906,
+                "x_max": 570.7482299804688,
+                "y_max": 998.80419921875
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.504502,
+              "box": {
+                "x_min": 1006.6287841796875,
+                "y_min": 379.2826843261719,
+                "x_max": 1114.9146728515625,
+                "y_max": 578.3905639648438
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.153837,
+              "box": {
+                "x_min": 404.0576171875,
+                "y_min": 408.314453125,
+                "x_max": 529.0670776367188,
+                "y_max": 647.1569213867188
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.135125,
+              "box": {
+                "x_min": 1005.7356567382812,
+                "y_min": 376.5770568847656,
+                "x_max": 1165.8427734375,
+                "y_max": 671.3674926757812
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.062249,
+              "box": {
+                "x_min": 1025.54345703125,
+                "y_min": 379.8897399902344,
+                "x_max": 1062.005126953125,
+                "y_max": 407.6382751464844
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.035914,
+              "box": {
+                "x_min": 701.1005859375,
+                "y_min": 295.2916259765625,
+                "x_max": 1211.021240234375,
+                "y_max": 873.32958984375
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_04.png",
+          "inference_ms": 73.409,
+          "annotated_image": "annotated/yolo_world/image_04.jpg",
+          "detections": [
+            {
+              "label": "person",
+              "confidence": 0.940049,
+              "box": {
+                "x_min": 366.84295654296875,
+                "y_min": 226.6872100830078,
+                "x_max": 587.9859008789062,
+                "y_max": 986.2098999023438
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.938292,
+              "box": {
+                "x_min": 880.201904296875,
+                "y_min": 226.0221710205078,
+                "x_max": 1108.5113525390625,
+                "y_max": 1001.4212646484375
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.295954,
+              "box": {
+                "x_min": 942.6049194335938,
+                "y_min": 225.53968811035156,
+                "x_max": 1024.4891357421875,
+                "y_max": 285.290771484375
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.185485,
+              "box": {
+                "x_min": 912.6883544921875,
+                "y_min": 346.4635925292969,
+                "x_max": 1067.4114990234375,
+                "y_max": 611.4168701171875
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_05.png",
+          "inference_ms": 61.534,
+          "annotated_image": "annotated/yolo_world/image_05.jpg",
+          "detections": [
+            {
+              "label": "person",
+              "confidence": 0.937046,
+              "box": {
+                "x_min": 288.4343566894531,
+                "y_min": 310.46990966796875,
+                "x_max": 514.2615966796875,
+                "y_max": 1024.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.87944,
+              "box": {
+                "x_min": 795.007080078125,
+                "y_min": 305.2709655761719,
+                "x_max": 985.0213012695312,
+                "y_max": 775.2760620117188
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.414663,
+              "box": {
+                "x_min": 363.9848937988281,
+                "y_min": 312.6134948730469,
+                "x_max": 453.05267333984375,
+                "y_max": 383.4918518066406
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.264764,
+              "box": {
+                "x_min": 530.3253784179688,
+                "y_min": 264.46466064453125,
+                "x_max": 1102.878662109375,
+                "y_max": 1024.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.150713,
+              "box": {
+                "x_min": 331.4520263671875,
+                "y_min": 445.9795227050781,
+                "x_max": 468.8453674316406,
+                "y_max": 708.7555541992188
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_06.png",
+          "inference_ms": 67.969,
+          "annotated_image": "annotated/yolo_world/image_06.jpg",
+          "detections": [
+            {
+              "label": "person",
+              "confidence": 0.963313,
+              "box": {
+                "x_min": 930.383056640625,
+                "y_min": 123.5989761352539,
+                "x_max": 1222.710693359375,
+                "y_max": 1024.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.595154,
+              "box": {
+                "x_min": 559.4051513671875,
+                "y_min": 244.86647033691406,
+                "x_max": 691.4904174804688,
+                "y_max": 423.3255310058594
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.478458,
+              "box": {
+                "x_min": 1026.0701904296875,
+                "y_min": 123.01603698730469,
+                "x_max": 1133.517333984375,
+                "y_max": 201.5490264892578
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.284122,
+              "box": {
+                "x_min": 511.67608642578125,
+                "y_min": 205.3399658203125,
+                "x_max": 744.6879272460938,
+                "y_max": 671.2872314453125
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.089661,
+              "box": {
+                "x_min": 977.8698120117188,
+                "y_min": 274.3379211425781,
+                "x_max": 1168.16650390625,
+                "y_max": 590.061279296875
+              }
+            }
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "owlv2",
+      "display_name": "OWLv2 base patch16 ensemble",
+      "threshold": 0.1,
+      "load_ms": 4141.2401660345495,
+      "error": null,
+      "images": [
+        {
+          "image": "image_01.png",
+          "inference_ms": 5743.638,
+          "annotated_image": "annotated/owlv2/image_01.jpg",
+          "detections": [
+            {
+              "label": "safety vest",
+              "confidence": 0.628145,
+              "box": {
+                "x_min": 467.0,
+                "y_min": 442.0,
+                "x_max": 586.0,
+                "y_max": 665.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.443897,
+              "box": {
+                "x_min": 451.0,
+                "y_min": 349.0,
+                "x_max": 538.0,
+                "y_max": 403.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.35199,
+              "box": {
+                "x_min": 731.0,
+                "y_min": 166.0,
+                "x_max": 761.0,
+                "y_max": 190.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.21718,
+              "box": {
+                "x_min": 667.0,
+                "y_min": 110.0,
+                "x_max": 810.0,
+                "y_max": 665.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.125938,
+              "box": {
+                "x_min": 594.0,
+                "y_min": 109.0,
+                "x_max": 745.0,
+                "y_max": 564.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.125687,
+              "box": {
+                "x_min": 719.0,
+                "y_min": 205.0,
+                "x_max": 778.0,
+                "y_max": 294.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.122361,
+              "box": {
+                "x_min": 3.0,
+                "y_min": 27.0,
+                "x_max": 572.0,
+                "y_max": 1004.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.109205,
+              "box": {
+                "x_min": 983.0,
+                "y_min": 60.0,
+                "x_max": 1553.0,
+                "y_max": 1005.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.108819,
+              "box": {
+                "x_min": 731.0,
+                "y_min": 163.0,
+                "x_max": 798.0,
+                "y_max": 378.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.103963,
+              "box": {
+                "x_min": 340.0,
+                "y_min": 359.0,
+                "x_max": 606.0,
+                "y_max": 935.0
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_02.png",
+          "inference_ms": 6089.862,
+          "annotated_image": "annotated/owlv2/image_02.jpg",
+          "detections": [
+            {
+              "label": "safety vest",
+              "confidence": 0.695647,
+              "box": {
+                "x_min": 790.0,
+                "y_min": 276.0,
+                "x_max": 936.0,
+                "y_max": 532.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.661089,
+              "box": {
+                "x_min": 512.0,
+                "y_min": 297.0,
+                "x_max": 670.0,
+                "y_max": 541.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.491381,
+              "box": {
+                "x_min": 582.0,
+                "y_min": 185.0,
+                "x_max": 685.0,
+                "y_max": 251.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.471926,
+              "box": {
+                "x_min": 808.0,
+                "y_min": 159.0,
+                "x_max": 895.0,
+                "y_max": 222.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.237907,
+              "box": {
+                "x_min": 763.0,
+                "y_min": 156.0,
+                "x_max": 950.0,
+                "y_max": 720.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.209669,
+              "box": {
+                "x_min": 516.0,
+                "y_min": 285.0,
+                "x_max": 712.0,
+                "y_max": 887.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.140148,
+              "box": {
+                "x_min": 0.0,
+                "y_min": -7.0,
+                "x_max": 519.0,
+                "y_max": 845.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.105571,
+              "box": {
+                "x_min": 753.0,
+                "y_min": 455.0,
+                "x_max": 933.0,
+                "y_max": 894.0
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_03.png",
+          "inference_ms": 6325.65,
+          "annotated_image": "annotated/owlv2/image_03.jpg",
+          "detections": [
+            {
+              "label": "safety vest",
+              "confidence": 0.756921,
+              "box": {
+                "x_min": 400.0,
+                "y_min": 410.0,
+                "x_max": 539.0,
+                "y_max": 626.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.466551,
+              "box": {
+                "x_min": 1020.0,
+                "y_min": 439.0,
+                "x_max": 1105.0,
+                "y_max": 545.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.465563,
+              "box": {
+                "x_min": 1024.0,
+                "y_min": 380.0,
+                "x_max": 1060.0,
+                "y_max": 408.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.42266,
+              "box": {
+                "x_min": 951.0,
+                "y_min": 386.0,
+                "x_max": 1199.0,
+                "y_max": 872.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.228757,
+              "box": {
+                "x_min": 734.0,
+                "y_min": 12.0,
+                "x_max": 1076.0,
+                "y_max": 846.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.217642,
+              "box": {
+                "x_min": 975.0,
+                "y_min": 21.0,
+                "x_max": 1533.0,
+                "y_max": 1015.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.140037,
+              "box": {
+                "x_min": 367.0,
+                "y_min": 334.0,
+                "x_max": 563.0,
+                "y_max": 995.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.128569,
+              "box": {
+                "x_min": 1008.0,
+                "y_min": 391.0,
+                "x_max": 1100.0,
+                "y_max": 573.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.125781,
+              "box": {
+                "x_min": 888.0,
+                "y_min": 42.0,
+                "x_max": 1159.0,
+                "y_max": 867.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.104773,
+              "box": {
+                "x_min": 1023.0,
+                "y_min": 386.0,
+                "x_max": 1063.0,
+                "y_max": 422.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.102378,
+              "box": {
+                "x_min": 1008.0,
+                "y_min": 391.0,
+                "x_max": 1100.0,
+                "y_max": 573.0
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_04.png",
+          "inference_ms": 6620.445,
+          "annotated_image": "annotated/owlv2/image_04.jpg",
+          "detections": [
+            {
+              "label": "safety vest",
+              "confidence": 0.792102,
+              "box": {
+                "x_min": 917.0,
+                "y_min": 350.0,
+                "x_max": 1069.0,
+                "y_max": 597.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.481157,
+              "box": {
+                "x_min": 945.0,
+                "y_min": 224.0,
+                "x_max": 1026.0,
+                "y_max": 280.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.161109,
+              "box": {
+                "x_min": 871.0,
+                "y_min": 246.0,
+                "x_max": 1093.0,
+                "y_max": 1009.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.15837,
+              "box": {
+                "x_min": 931.0,
+                "y_min": 29.0,
+                "x_max": 1538.0,
+                "y_max": 1024.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.12207,
+              "box": {
+                "x_min": 367.0,
+                "y_min": 231.0,
+                "x_max": 577.0,
+                "y_max": 964.0
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_05.png",
+          "inference_ms": 6347.996,
+          "annotated_image": "annotated/owlv2/image_05.jpg",
+          "detections": [
+            {
+              "label": "safety vest",
+              "confidence": 0.661541,
+              "box": {
+                "x_min": 322.0,
+                "y_min": 468.0,
+                "x_max": 479.0,
+                "y_max": 701.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.573477,
+              "box": {
+                "x_min": 845.0,
+                "y_min": 390.0,
+                "x_max": 981.0,
+                "y_max": 511.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.565587,
+              "box": {
+                "x_min": 363.0,
+                "y_min": 312.0,
+                "x_max": 455.0,
+                "y_max": 379.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.423558,
+              "box": {
+                "x_min": 485.0,
+                "y_min": 68.0,
+                "x_max": 818.0,
+                "y_max": 1040.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.301584,
+              "box": {
+                "x_min": 644.0,
+                "y_min": 25.0,
+                "x_max": 1337.0,
+                "y_max": 1048.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.245649,
+              "box": {
+                "x_min": 899.0,
+                "y_min": 269.0,
+                "x_max": 1140.0,
+                "y_max": 975.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.186667,
+              "box": {
+                "x_min": 848.0,
+                "y_min": 445.0,
+                "x_max": 984.0,
+                "y_max": 574.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.173052,
+              "box": {
+                "x_min": 295.0,
+                "y_min": 327.0,
+                "x_max": 526.0,
+                "y_max": 1011.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.154682,
+              "box": {
+                "x_min": 833.0,
+                "y_min": 294.0,
+                "x_max": 1012.0,
+                "y_max": 672.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.139307,
+              "box": {
+                "x_min": 987.0,
+                "y_min": 16.0,
+                "x_max": 1543.0,
+                "y_max": 967.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.113367,
+              "box": {
+                "x_min": 813.0,
+                "y_min": 297.0,
+                "x_max": 1465.0,
+                "y_max": 1008.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.101223,
+              "box": {
+                "x_min": 5.0,
+                "y_min": 58.0,
+                "x_max": 582.0,
+                "y_max": 1039.0
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_06.png",
+          "inference_ms": 6130.812,
+          "annotated_image": "annotated/owlv2/image_06.jpg",
+          "detections": [
+            {
+              "label": "safety vest",
+              "confidence": 0.792243,
+              "box": {
+                "x_min": 994.0,
+                "y_min": 266.0,
+                "x_max": 1172.0,
+                "y_max": 572.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.581258,
+              "box": {
+                "x_min": 509.0,
+                "y_min": 197.0,
+                "x_max": 746.0,
+                "y_max": 656.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.528344,
+              "box": {
+                "x_min": 1033.0,
+                "y_min": 122.0,
+                "x_max": 1139.0,
+                "y_max": 196.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.360963,
+              "box": {
+                "x_min": 584.0,
+                "y_min": 293.0,
+                "x_max": 660.0,
+                "y_max": 348.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.230263,
+              "box": {
+                "x_min": 563.0,
+                "y_min": 246.0,
+                "x_max": 688.0,
+                "y_max": 428.0
+              }
+            },
+            {
+              "label": "person",
+              "confidence": 0.222457,
+              "box": {
+                "x_min": 977.0,
+                "y_min": 168.0,
+                "x_max": 1230.0,
+                "y_max": 1041.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.196164,
+              "box": {
+                "x_min": 580.0,
+                "y_min": 293.0,
+                "x_max": 676.0,
+                "y_max": 428.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.152955,
+              "box": {
+                "x_min": 964.0,
+                "y_min": 0.0,
+                "x_max": 1532.0,
+                "y_max": 927.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.142411,
+              "box": {
+                "x_min": 607.0,
+                "y_min": 246.0,
+                "x_max": 643.0,
+                "y_max": 278.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.100429,
+              "box": {
+                "x_min": 1033.0,
+                "y_min": 175.0,
+                "x_max": 1132.0,
+                "y_max": 193.0
+              }
+            }
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "grounding_dino",
+      "display_name": "Grounding DINO tiny",
+      "threshold": 0.1,
+      "load_ms": 3202.485667075962,
+      "error": null,
+      "images": [
+        {
+          "image": "image_01.png",
+          "inference_ms": 9168.536,
+          "annotated_image": "annotated/grounding_dino/image_01.jpg",
+          "detections": [
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.350227,
+              "box": {
+                "x_min": 628.0,
+                "y_min": 107.0,
+                "x_max": 852.0,
+                "y_max": 657.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.274369,
+              "box": {
+                "x_min": 450.0,
+                "y_min": 349.0,
+                "x_max": 539.0,
+                "y_max": 405.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.217593,
+              "box": {
+                "x_min": 628.0,
+                "y_min": 107.0,
+                "x_max": 853.0,
+                "y_max": 657.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.183155,
+              "box": {
+                "x_min": 1.0,
+                "y_min": 0.0,
+                "x_max": 1534.0,
+                "y_max": 1022.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.181835,
+              "box": {
+                "x_min": 629.0,
+                "y_min": 108.0,
+                "x_max": 852.0,
+                "y_max": 657.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.174008,
+              "box": {
+                "x_min": 318.0,
+                "y_min": 348.0,
+                "x_max": 610.0,
+                "y_max": 934.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.170171,
+              "box": {
+                "x_min": 766.0,
+                "y_min": 1.0,
+                "x_max": 1534.0,
+                "y_max": 1018.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.169721,
+              "box": {
+                "x_min": 3.0,
+                "y_min": 0.0,
+                "x_max": 1532.0,
+                "y_max": 1023.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.141032,
+              "box": {
+                "x_min": 766.0,
+                "y_min": -1.0,
+                "x_max": 1534.0,
+                "y_max": 1006.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.138425,
+              "box": {
+                "x_min": 324.0,
+                "y_min": 348.0,
+                "x_max": 609.0,
+                "y_max": 934.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.132768,
+              "box": {
+                "x_min": 271.0,
+                "y_min": 462.0,
+                "x_max": 445.0,
+                "y_max": 936.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.132191,
+              "box": {
+                "x_min": 706.0,
+                "y_min": 165.0,
+                "x_max": 785.0,
+                "y_max": 343.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.127714,
+              "box": {
+                "x_min": 1.0,
+                "y_min": -2.0,
+                "x_max": 570.0,
+                "y_max": 1020.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.125384,
+              "box": {
+                "x_min": 270.0,
+                "y_min": 462.0,
+                "x_max": 445.0,
+                "y_max": 936.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.123798,
+              "box": {
+                "x_min": 448.0,
+                "y_min": 886.0,
+                "x_max": 540.0,
+                "y_max": 934.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.122184,
+              "box": {
+                "x_min": 0.0,
+                "y_min": 1.0,
+                "x_max": 571.0,
+                "y_max": 1015.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.121203,
+              "box": {
+                "x_min": 534.0,
+                "y_min": 847.0,
+                "x_max": 609.0,
+                "y_max": 895.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.115482,
+              "box": {
+                "x_min": 2.0,
+                "y_min": -1.0,
+                "x_max": 1535.0,
+                "y_max": 1022.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.110999,
+              "box": {
+                "x_min": 320.0,
+                "y_min": 348.0,
+                "x_max": 608.0,
+                "y_max": 934.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.109897,
+              "box": {
+                "x_min": 731.0,
+                "y_min": 165.0,
+                "x_max": 760.0,
+                "y_max": 189.0
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_02.png",
+          "inference_ms": 9251.872,
+          "annotated_image": "annotated/grounding_dino/image_02.jpg",
+          "detections": [
+            {
+              "label": "safety hat",
+              "confidence": 0.281078,
+              "box": {
+                "x_min": 797.0,
+                "y_min": 158.0,
+                "x_max": 895.0,
+                "y_max": 224.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.278963,
+              "box": {
+                "x_min": 574.0,
+                "y_min": 183.0,
+                "x_max": 685.0,
+                "y_max": 254.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.262646,
+              "box": {
+                "x_min": 749.0,
+                "y_min": 157.0,
+                "x_max": 959.0,
+                "y_max": 888.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.25478,
+              "box": {
+                "x_min": 3.0,
+                "y_min": 0.0,
+                "x_max": 1532.0,
+                "y_max": 1020.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.243368,
+              "box": {
+                "x_min": 520.0,
+                "y_min": 183.0,
+                "x_max": 709.0,
+                "y_max": 905.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.214953,
+              "box": {
+                "x_min": 750.0,
+                "y_min": 157.0,
+                "x_max": 959.0,
+                "y_max": 887.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.204029,
+              "box": {
+                "x_min": 1.0,
+                "y_min": 0.0,
+                "x_max": 651.0,
+                "y_max": 920.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.195077,
+              "box": {
+                "x_min": 521.0,
+                "y_min": 183.0,
+                "x_max": 711.0,
+                "y_max": 904.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.179757,
+              "box": {
+                "x_min": 203.0,
+                "y_min": 585.0,
+                "x_max": 1285.0,
+                "y_max": 1004.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.171586,
+              "box": {
+                "x_min": 201.0,
+                "y_min": 584.0,
+                "x_max": 1287.0,
+                "y_max": 1004.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.156524,
+              "box": {
+                "x_min": 750.0,
+                "y_min": 158.0,
+                "x_max": 959.0,
+                "y_max": 887.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.141709,
+              "box": {
+                "x_min": 4.0,
+                "y_min": 0.0,
+                "x_max": 1531.0,
+                "y_max": 1020.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.140508,
+              "box": {
+                "x_min": 521.0,
+                "y_min": 183.0,
+                "x_max": 709.0,
+                "y_max": 904.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.126793,
+              "box": {
+                "x_min": 205.0,
+                "y_min": 584.0,
+                "x_max": 1284.0,
+                "y_max": 1004.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.123647,
+              "box": {
+                "x_min": 875.0,
+                "y_min": 814.0,
+                "x_max": 924.0,
+                "y_max": 886.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.123141,
+              "box": {
+                "x_min": 1.0,
+                "y_min": 0.0,
+                "x_max": 653.0,
+                "y_max": 919.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.120636,
+              "box": {
+                "x_min": 3.0,
+                "y_min": 0.0,
+                "x_max": 1532.0,
+                "y_max": 1020.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.115355,
+              "box": {
+                "x_min": 521.0,
+                "y_min": 293.0,
+                "x_max": 678.0,
+                "y_max": 569.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.11484,
+              "box": {
+                "x_min": 875.0,
+                "y_min": -1.0,
+                "x_max": 1534.0,
+                "y_max": 1019.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.110706,
+              "box": {
+                "x_min": 752.0,
+                "y_min": 777.0,
+                "x_max": 842.0,
+                "y_max": 841.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.107207,
+              "box": {
+                "x_min": 797.0,
+                "y_min": 158.0,
+                "x_max": 895.0,
+                "y_max": 224.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.106243,
+              "box": {
+                "x_min": 536.0,
+                "y_min": 840.0,
+                "x_max": 611.0,
+                "y_max": 904.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.101645,
+              "box": {
+                "x_min": 1.0,
+                "y_min": 0.0,
+                "x_max": 652.0,
+                "y_max": 919.0
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_03.png",
+          "inference_ms": 9531.144,
+          "annotated_image": "annotated/grounding_dino/image_03.jpg",
+          "detections": [
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.259078,
+              "box": {
+                "x_min": 2.0,
+                "y_min": 1.0,
+                "x_max": 1533.0,
+                "y_max": 1017.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.233173,
+              "box": {
+                "x_min": 808.0,
+                "y_min": 323.0,
+                "x_max": 1204.0,
+                "y_max": 871.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.223203,
+              "box": {
+                "x_min": 365.0,
+                "y_min": 314.0,
+                "x_max": 568.0,
+                "y_max": 994.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.209718,
+              "box": {
+                "x_min": 681.0,
+                "y_min": 16.0,
+                "x_max": 1203.0,
+                "y_max": 871.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.205065,
+              "box": {
+                "x_min": 4.0,
+                "y_min": 0.0,
+                "x_max": 1531.0,
+                "y_max": 1020.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.201579,
+              "box": {
+                "x_min": 366.0,
+                "y_min": 312.0,
+                "x_max": 568.0,
+                "y_max": 994.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.187285,
+              "box": {
+                "x_min": 1025.0,
+                "y_min": 379.0,
+                "x_max": 1059.0,
+                "y_max": 408.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.1752,
+              "box": {
+                "x_min": 1007.0,
+                "y_min": 376.0,
+                "x_max": 1108.0,
+                "y_max": 577.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.163691,
+              "box": {
+                "x_min": 683.0,
+                "y_min": 15.0,
+                "x_max": 1202.0,
+                "y_max": 871.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.162833,
+              "box": {
+                "x_min": 1007.0,
+                "y_min": 378.0,
+                "x_max": 1108.0,
+                "y_max": 577.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.154253,
+              "box": {
+                "x_min": 365.0,
+                "y_min": 314.0,
+                "x_max": 568.0,
+                "y_max": 993.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.148673,
+              "box": {
+                "x_min": 394.0,
+                "y_min": 933.0,
+                "x_max": 436.0,
+                "y_max": 993.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.143768,
+              "box": {
+                "x_min": 483.0,
+                "y_min": 916.0,
+                "x_max": 560.0,
+                "y_max": 970.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.136082,
+              "box": {
+                "x_min": 687.0,
+                "y_min": 13.0,
+                "x_max": 1025.0,
+                "y_max": 316.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.13466,
+              "box": {
+                "x_min": 3.0,
+                "y_min": 0.0,
+                "x_max": 1532.0,
+                "y_max": 1020.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.132383,
+              "box": {
+                "x_min": 684.0,
+                "y_min": 16.0,
+                "x_max": 1027.0,
+                "y_max": 322.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.129413,
+              "box": {
+                "x_min": 390.0,
+                "y_min": 402.0,
+                "x_max": 534.0,
+                "y_max": 645.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.128622,
+              "box": {
+                "x_min": 809.0,
+                "y_min": 325.0,
+                "x_max": 1203.0,
+                "y_max": 870.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.118318,
+              "box": {
+                "x_min": 1.0,
+                "y_min": 1.0,
+                "x_max": 741.0,
+                "y_max": 1020.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.115638,
+              "box": {
+                "x_min": 1.0,
+                "y_min": 1.0,
+                "x_max": 741.0,
+                "y_max": 1018.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.111803,
+              "box": {
+                "x_min": 1008.0,
+                "y_min": 443.0,
+                "x_max": 1107.0,
+                "y_max": 572.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.103097,
+              "box": {
+                "x_min": 683.0,
+                "y_min": 16.0,
+                "x_max": 1202.0,
+                "y_max": 871.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.101697,
+              "box": {
+                "x_min": 950.0,
+                "y_min": 327.0,
+                "x_max": 1176.0,
+                "y_max": 618.0
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_04.png",
+          "inference_ms": 9140.17,
+          "annotated_image": "annotated/grounding_dino/image_04.jpg",
+          "detections": [
+            {
+              "label": "safety hat",
+              "confidence": 0.32044,
+              "box": {
+                "x_min": 941.0,
+                "y_min": 223.0,
+                "x_max": 1025.0,
+                "y_max": 279.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.261101,
+              "box": {
+                "x_min": 3.0,
+                "y_min": 0.0,
+                "x_max": 1532.0,
+                "y_max": 1023.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.25856,
+              "box": {
+                "x_min": 879.0,
+                "y_min": 222.0,
+                "x_max": 1108.0,
+                "y_max": 998.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.215847,
+              "box": {
+                "x_min": 365.0,
+                "y_min": 225.0,
+                "x_max": 582.0,
+                "y_max": 986.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.212398,
+              "box": {
+                "x_min": 880.0,
+                "y_min": 223.0,
+                "x_max": 1108.0,
+                "y_max": 997.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.191506,
+              "box": {
+                "x_min": 0.0,
+                "y_min": 1.0,
+                "x_max": 651.0,
+                "y_max": 1021.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.180465,
+              "box": {
+                "x_min": 879.0,
+                "y_min": 223.0,
+                "x_max": 1108.0,
+                "y_max": 997.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.172732,
+              "box": {
+                "x_min": 365.0,
+                "y_min": 226.0,
+                "x_max": 584.0,
+                "y_max": 985.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.170899,
+              "box": {
+                "x_min": 891.0,
+                "y_min": -1.0,
+                "x_max": 1534.0,
+                "y_max": 1022.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.149182,
+              "box": {
+                "x_min": 365.0,
+                "y_min": 226.0,
+                "x_max": 583.0,
+                "y_max": 985.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.146841,
+              "box": {
+                "x_min": 4.0,
+                "y_min": 0.0,
+                "x_max": 1531.0,
+                "y_max": 1022.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.143697,
+              "box": {
+                "x_min": 887.0,
+                "y_min": 909.0,
+                "x_max": 983.0,
+                "y_max": 969.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.138742,
+              "box": {
+                "x_min": 1015.0,
+                "y_min": 930.0,
+                "x_max": 1065.0,
+                "y_max": 997.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.136348,
+              "box": {
+                "x_min": 398.0,
+                "y_min": 919.0,
+                "x_max": 444.0,
+                "y_max": 985.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.135525,
+              "box": {
+                "x_min": 490.0,
+                "y_min": 904.0,
+                "x_max": 568.0,
+                "y_max": 966.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.134017,
+              "box": {
+                "x_min": 941.0,
+                "y_min": 223.0,
+                "x_max": 1025.0,
+                "y_max": 278.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.127403,
+              "box": {
+                "x_min": 4.0,
+                "y_min": 0.0,
+                "x_max": 1532.0,
+                "y_max": 1022.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.125647,
+              "box": {
+                "x_min": 1.0,
+                "y_min": 0.0,
+                "x_max": 653.0,
+                "y_max": 1019.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.12523,
+              "box": {
+                "x_min": 941.0,
+                "y_min": 223.0,
+                "x_max": 1025.0,
+                "y_max": 279.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.121279,
+              "box": {
+                "x_min": 894.0,
+                "y_min": -1.0,
+                "x_max": 1533.0,
+                "y_max": 1022.0
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_05.png",
+          "inference_ms": 9289.263,
+          "annotated_image": "annotated/grounding_dino/image_05.jpg",
+          "detections": [
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.355997,
+              "box": {
+                "x_min": 326.0,
+                "y_min": 230.0,
+                "x_max": 1097.0,
+                "y_max": 1020.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.310753,
+              "box": {
+                "x_min": 360.0,
+                "y_min": 311.0,
+                "x_max": 452.0,
+                "y_max": 382.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.239931,
+              "box": {
+                "x_min": 2.0,
+                "y_min": 0.0,
+                "x_max": 1533.0,
+                "y_max": 1021.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.19621,
+              "box": {
+                "x_min": 791.0,
+                "y_min": 296.0,
+                "x_max": 984.0,
+                "y_max": 767.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.192925,
+              "box": {
+                "x_min": 287.0,
+                "y_min": 312.0,
+                "x_max": 510.0,
+                "y_max": 1021.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.191882,
+              "box": {
+                "x_min": 325.0,
+                "y_min": 0.0,
+                "x_max": 1096.0,
+                "y_max": 1022.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.189102,
+              "box": {
+                "x_min": 792.0,
+                "y_min": 297.0,
+                "x_max": 983.0,
+                "y_max": 766.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.175886,
+              "box": {
+                "x_min": 287.0,
+                "y_min": 310.0,
+                "x_max": 510.0,
+                "y_max": 1022.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.166588,
+              "box": {
+                "x_min": 327.0,
+                "y_min": 232.0,
+                "x_max": 1096.0,
+                "y_max": 1020.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.157682,
+              "box": {
+                "x_min": 793.0,
+                "y_min": 297.0,
+                "x_max": 983.0,
+                "y_max": 765.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.142278,
+              "box": {
+                "x_min": 288.0,
+                "y_min": 312.0,
+                "x_max": 510.0,
+                "y_max": 1022.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.13156,
+              "box": {
+                "x_min": 402.0,
+                "y_min": 997.0,
+                "x_max": 471.0,
+                "y_max": 1022.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.124645,
+              "box": {
+                "x_min": 4.0,
+                "y_min": 0.0,
+                "x_max": 1532.0,
+                "y_max": 1021.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.106359,
+              "box": {
+                "x_min": 830.0,
+                "y_min": 382.0,
+                "x_max": 979.0,
+                "y_max": 591.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.10398,
+              "box": {
+                "x_min": 344.0,
+                "y_min": 0.0,
+                "x_max": 741.0,
+                "y_max": 284.0
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "image": "image_06.png",
+          "inference_ms": 9692.781,
+          "annotated_image": "annotated/grounding_dino/image_06.jpg",
+          "detections": [
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.362551,
+              "box": {
+                "x_min": 510.0,
+                "y_min": 202.0,
+                "x_max": 742.0,
+                "y_max": 667.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.330862,
+              "box": {
+                "x_min": 1025.0,
+                "y_min": 121.0,
+                "x_max": 1132.0,
+                "y_max": 195.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.225812,
+              "box": {
+                "x_min": 572.0,
+                "y_min": 336.0,
+                "x_max": 679.0,
+                "y_max": 433.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.216532,
+              "box": {
+                "x_min": 509.0,
+                "y_min": 203.0,
+                "x_max": 743.0,
+                "y_max": 667.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.213918,
+              "box": {
+                "x_min": 930.0,
+                "y_min": 122.0,
+                "x_max": 1223.0,
+                "y_max": 1020.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.203564,
+              "box": {
+                "x_min": 930.0,
+                "y_min": 121.0,
+                "x_max": 1223.0,
+                "y_max": 1021.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.201394,
+              "box": {
+                "x_min": 559.0,
+                "y_min": 243.0,
+                "x_max": 690.0,
+                "y_max": 432.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.189223,
+              "box": {
+                "x_min": 509.0,
+                "y_min": 203.0,
+                "x_max": 743.0,
+                "y_max": 666.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.175379,
+              "box": {
+                "x_min": 930.0,
+                "y_min": 122.0,
+                "x_max": 1223.0,
+                "y_max": 1020.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.157876,
+              "box": {
+                "x_min": 574.0,
+                "y_min": 337.0,
+                "x_max": 675.0,
+                "y_max": 432.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.14294,
+              "box": {
+                "x_min": 572.0,
+                "y_min": 337.0,
+                "x_max": 676.0,
+                "y_max": 432.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.130538,
+              "box": {
+                "x_min": 1005.0,
+                "y_min": 976.0,
+                "x_max": 1059.0,
+                "y_max": 1022.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.130112,
+              "box": {
+                "x_min": 1057.0,
+                "y_min": 945.0,
+                "x_max": 1140.0,
+                "y_max": 1021.0
+              }
+            },
+            {
+              "label": "material handling vehicle",
+              "confidence": 0.128571,
+              "box": {
+                "x_min": 3.0,
+                "y_min": 1.0,
+                "x_max": 1532.0,
+                "y_max": 1021.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.12612,
+              "box": {
+                "x_min": 559.0,
+                "y_min": 243.0,
+                "x_max": 690.0,
+                "y_max": 428.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.115649,
+              "box": {
+                "x_min": 978.0,
+                "y_min": 262.0,
+                "x_max": 1166.0,
+                "y_max": 587.0
+              }
+            },
+            {
+              "label": "safety hat",
+              "confidence": 0.115087,
+              "box": {
+                "x_min": 4.0,
+                "y_min": 1.0,
+                "x_max": 1532.0,
+                "y_max": 1020.0
+              }
+            },
+            {
+              "label": "safety vest",
+              "confidence": 0.113495,
+              "box": {
+                "x_min": 1025.0,
+                "y_min": 121.0,
+                "x_max": 1132.0,
+                "y_max": 194.0
+              }
+            }
+          ],
+          "error": null
+        }
+      ]
+    }
+  ]
+}

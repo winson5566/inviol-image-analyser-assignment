@@ -7,9 +7,10 @@ from fastapi import Depends, FastAPI, HTTPException, UploadFile, status
 from PIL import Image, UnidentifiedImageError
 from starlette.concurrency import run_in_threadpool
 
-from inviol_image_analyser_assignment.config import load_analysis_config
-from inviol_image_analyser_assignment.models import AnalysisResult, ObjectDetectionResult
+from inviol_image_analyser_assignment.config import AnalysisConfig, load_analysis_config
+from inviol_image_analyser_assignment.models import AnalysisResult, ObjectDetectionResult, SafetyDetectionResult
 from inviol_image_analyser_assignment.services.object_detection import ObjectDetector, create_object_detector
+from inviol_image_analyser_assignment.services.safety_detection import SafetyRuleEngine, create_safety_rule_engine
 
 app = FastAPI()
 
@@ -27,12 +28,25 @@ async def post_analyse(file: UploadFile) -> AnalysisResult:
 
 
 @cache
-def _get_object_detector() -> ObjectDetector:
-    """Build and cache the detector selected by the active configuration."""
+def _get_analysis_config() -> AnalysisConfig:
+    """Load and cache the active analysis configuration."""
 
     config_path = Path(__file__).resolve().parents[2] / "config" / "analysis.json"
-    config = load_analysis_config(config_path)
-    return create_object_detector(config.object_detection)
+    return load_analysis_config(config_path)
+
+
+@cache
+def get_object_detector() -> ObjectDetector:
+    """Build and cache the detector selected by the active configuration."""
+
+    return create_object_detector(_get_analysis_config().object_detection)
+
+
+@cache
+def get_safety_rule_engine() -> SafetyRuleEngine:
+    """Build and cache the safety rules selected by the active configuration."""
+
+    return create_safety_rule_engine(_get_analysis_config().safety_rules)
 
 
 def _decode_image(content: bytes) -> Image.Image:
@@ -53,9 +67,22 @@ def _decode_image(content: bytes) -> Image.Image:
 @app.post("/object-detection")
 async def post_object_detection(
     file: UploadFile,
-    detector: Annotated[ObjectDetector, Depends(_get_object_detector)],
+    detector: Annotated[ObjectDetector, Depends(get_object_detector)],
 ) -> ObjectDetectionResult:
     """Detect configured workplace objects in an uploaded image."""
 
     image = _decode_image(await file.read())
     return await run_in_threadpool(detector.detect, image)
+
+
+@app.post("/safety-detection")
+async def post_safety_detection(
+    file: UploadFile,
+    detector: Annotated[ObjectDetector, Depends(get_object_detector)],
+    rule_engine: Annotated[SafetyRuleEngine, Depends(get_safety_rule_engine)],
+) -> SafetyDetectionResult:
+    """Detect workplace objects and evaluate the configured safety rules."""
+
+    image = _decode_image(await file.read())
+    detection_result = await run_in_threadpool(detector.detect, image)
+    return await run_in_threadpool(rule_engine.evaluate, detection_result)

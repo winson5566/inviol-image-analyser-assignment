@@ -1,3 +1,4 @@
 {
-  "object_detection_config": "object_detection/object_detection-v0.1.1.json"
+  "object_detection_config": "object_detection/object_detection-v0.1.1.json",
+  "safety_rules_config": "safety_rules/safety_rules-v0.1.0.json"
 }

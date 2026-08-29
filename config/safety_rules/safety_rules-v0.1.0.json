@@ -1,0 +1,18 @@
+{
+  "risk_level_thresholds": {
+    "medium_min_score": 4,
+    "high_min_score": 7
+  },
+  "missing_ppe": {
+    "required_ppe": [
+      "safety_hat",
+      "safety_vest"
+    ],
+    "minimum_ppe_overlap_with_person": 0.5,
+    "risk_assessment": {
+      "missing_safety_hat_score": 8,
+      "missing_safety_vest_score": 6,
+      "multiple_missing_ppe_score": 9
+    }
+  }
+}

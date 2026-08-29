@@ -15,6 +15,10 @@ from inviol_image_analyser_assignment.services.safety_detection import SafetyRul
 
 app = FastAPI()
 
+MAX_IMAGE_UPLOAD_BYTES = 10 * 1024 * 1024
+_ALLOWED_IMAGE_MEDIA_TYPES = frozenset({"image/jpeg", "image/png"})
+_ALLOWED_IMAGE_FORMATS = frozenset({"JPEG", "PNG"})
+
 
 @app.get("/healthcheck")
 async def get_healthcheck():
@@ -51,12 +55,17 @@ def get_risk_assessment_service() -> RiskAssessmentService:
 
 
 def _decode_image(content: bytes) -> Image.Image:
-    """Decode uploaded image bytes into the RGB format expected by detectors."""
+    """Decode JPEG or PNG bytes into the RGB format expected by detectors."""
 
     if not content:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Uploaded image is empty")
     try:
         with Image.open(BytesIO(content)) as image:
+            if image.format not in _ALLOWED_IMAGE_FORMATS:
+                raise HTTPException(
+                    status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
+                    detail="Only JPEG and PNG images are supported",
+                )
             image.load()
             return image.convert("RGB")
     except (UnidentifiedImageError, OSError) as error:
@@ -65,40 +74,55 @@ def _decode_image(content: bytes) -> Image.Image:
         ) from error
 
 
+async def validate_image_upload(file: UploadFile) -> Image.Image:
+    """Validate and decode an uploaded image without reading an unbounded body."""
+
+    if file.content_type not in _ALLOWED_IMAGE_MEDIA_TYPES:
+        raise HTTPException(
+            status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
+            detail="Only JPEG and PNG images are supported",
+        )
+
+    content = await file.read(MAX_IMAGE_UPLOAD_BYTES + 1)
+    if len(content) > MAX_IMAGE_UPLOAD_BYTES:
+        raise HTTPException(
+            status_code=status.HTTP_413_CONTENT_TOO_LARGE,
+            detail=f"Uploaded image must not exceed {MAX_IMAGE_UPLOAD_BYTES // (1024 * 1024)} MB",
+        )
+    return _decode_image(content)
+
+
 @app.post("/object-detection")
 async def post_object_detection(
-    file: UploadFile,
+    image: Annotated[Image.Image, Depends(validate_image_upload)],
     detector: Annotated[ObjectDetector, Depends(get_object_detector)],
 ) -> ObjectDetectionResult:
     """Detect configured workplace objects in an uploaded image."""
 
-    image = _decode_image(await file.read())
     return await run_in_threadpool(detector.detect, image)
 
 
 @app.post("/safety-detection")
 async def post_safety_detection(
-    file: UploadFile,
+    image: Annotated[Image.Image, Depends(validate_image_upload)],
     detector: Annotated[ObjectDetector, Depends(get_object_detector)],
     rule_engine: Annotated[SafetyRuleEngine, Depends(get_safety_rule_engine)],
 ) -> SafetyDetectionResult:
     """Detect workplace objects and evaluate the configured safety rules."""
 
-    image = _decode_image(await file.read())
     detection_result = await run_in_threadpool(detector.detect, image)
     return await run_in_threadpool(rule_engine.evaluate, detection_result)
 
 
 @app.post("/analyse")
 async def post_analyse(
-    file: UploadFile,
+    image: Annotated[Image.Image, Depends(validate_image_upload)],
     detector: Annotated[ObjectDetector, Depends(get_object_detector)],
     rule_engine: Annotated[SafetyRuleEngine, Depends(get_safety_rule_engine)],
     risk_assessment: Annotated[RiskAssessmentService, Depends(get_risk_assessment_service)],
 ) -> AnalysisResult:
     """Run object detection, safety rules, and structured risk assessment."""
 
-    image = _decode_image(await file.read())
     detection_result = await run_in_threadpool(detector.detect, image)
     safety_result = await run_in_threadpool(rule_engine.evaluate, detection_result)
     return await run_in_threadpool(risk_assessment.assess, detection_result, safety_result)

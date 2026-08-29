@@ -22,6 +22,8 @@ from inviol_image_analyser_assignment.models import (
     ImageDimensions,
     ObjectDetectionResult,
     ObjectType,
+    RiskLevel,
+    RiskRating,
 )
 
 
@@ -63,12 +65,16 @@ def _empty_detector() -> FakeObjectDetector:
     )
 
 
-def test_analyse_returns_structured_risk_assessment() -> None:
-    person = Detection(
-        object_type=ObjectType.PERSON,
-        confidence=0.9,
-        bounding_box=BoundingBox(x_min=0.1, y_min=0.1, x_max=0.5, y_max=0.9),
+def _detection(object_type: ObjectType, box: tuple[float, float, float, float], confidence: float = 0.9) -> Detection:
+    return Detection(
+        object_type=object_type,
+        confidence=confidence,
+        bounding_box=BoundingBox(x_min=box[0], y_min=box[1], x_max=box[2], y_max=box[3]),
     )
+
+
+def test_analyse_returns_structured_risk_assessment() -> None:
+    person = _detection(ObjectType.PERSON, (0.1, 0.1, 0.5, 0.9))
     detector = FakeObjectDetector(
         ObjectDetectionResult(
             image=ImageDimensions(width=20, height=10),
@@ -88,6 +94,45 @@ def test_analyse_returns_structured_risk_assessment() -> None:
     assert len(result.events) == 1
     assert result.overall_risk == result.events[0].risk
     assert result.events[0].rule_type == "missing_required_ppe"
+
+
+def test_analyse_returns_zero_risk_when_no_objects_are_detected() -> None:
+    image_bytes = BytesIO()
+    Image.new("RGB", (1, 1), "white").save(image_bytes, format="PNG")
+    detector = _empty_detector()
+
+    response = _post_image(detector, image_bytes.getvalue(), "image/png")
+
+    result = AnalysisResult.model_validate_json(response.content)
+    assert response.status_code == 200
+    assert result.detected_objects == []
+    assert result.events == []
+    assert result.overall_risk == RiskRating(score=0, level=RiskLevel.LOW)
+
+
+def test_analyse_returns_zero_risk_when_detected_person_has_required_ppe() -> None:
+    detections = [
+        _detection(ObjectType.PERSON, (0.1, 0.1, 0.5, 0.9)),
+        _detection(ObjectType.SAFETY_HAT, (0.2, 0.12, 0.3, 0.25), confidence=0.8),
+        _detection(ObjectType.SAFETY_VEST, (0.18, 0.35, 0.42, 0.7), confidence=0.85),
+    ]
+    detector = FakeObjectDetector(
+        ObjectDetectionResult(
+            image=ImageDimensions(width=20, height=10),
+            detections=detections,
+            latency_ms=5,
+        )
+    )
+    image_bytes = BytesIO()
+    Image.new("RGB", (20, 10), "white").save(image_bytes, format="PNG")
+
+    response = _post_image(detector, image_bytes.getvalue(), "image/png")
+
+    result = AnalysisResult.model_validate_json(response.content)
+    assert response.status_code == 200
+    assert result.detected_objects == detections
+    assert result.events == []
+    assert result.overall_risk == RiskRating(score=0, level=RiskLevel.LOW)
 
 
 @pytest.mark.parametrize(

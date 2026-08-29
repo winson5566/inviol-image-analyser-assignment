@@ -1,0 +1,24 @@
+{
+  "detector_type": "yolo_world",
+  "model_source": "weights/yolo_world/workplace-safety-yolo-world-v0.1.pt",
+  "image_size": 640,
+  "nms_iou_threshold": 0.5,
+  "targets": {
+    "person": {
+      "prompt": "person",
+      "confidence_threshold": 0.1
+    },
+    "forklift": {
+      "prompt": "material handling vehicle",
+      "confidence_threshold": 0.1
+    },
+    "safety_hat": {
+      "prompt": "safety hat",
+      "confidence_threshold": 0.1
+    },
+    "safety_vest": {
+      "prompt": "safety vest",
+      "confidence_threshold": 0.1
+    }
+  }
+}

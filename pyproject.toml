@@ -5,9 +5,12 @@ description = "An image analysis service using FastAPI."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "clip @ git+https://github.com/ultralytics/CLIP.git",
     "fastapi>=0.119.0",
+    "pillow>=11.0.0",
     "pydantic>=2.12.0",
     "python-multipart>=0.0.20",
+    "ultralytics>=8.3.0",
     "uvicorn>=0.37.0",
 ]
 

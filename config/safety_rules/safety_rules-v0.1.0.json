@@ -14,5 +14,9 @@
       "missing_safety_vest_score": 6,
       "multiple_missing_ppe_score": 9
     }
+  },
+  "person_forklift_proximity": {
+    "minimum_person_overlap_with_forklift": 0.8,
+    "maximum_normalized_distance": 0.08
   }
 }

@@ -6,6 +6,9 @@ from typing import Protocol, final
 from inviol_image_analyser_assignment.config import SafetyRulesConfig
 from inviol_image_analyser_assignment.models import ObjectDetectionResult, SafetyDetectionResult, SafetyEvent
 from inviol_image_analyser_assignment.services.safety_detection.missing_ppe import MissingPpeRule
+from inviol_image_analyser_assignment.services.safety_detection.person_forklift_proximity import (
+    PersonForkliftProximityRule,
+)
 
 
 class SafetyRule(Protocol):
@@ -47,4 +50,9 @@ class SafetyRuleEngine:
 def create_safety_rule_engine(config: SafetyRulesConfig) -> SafetyRuleEngine:
     """Build an engine containing all configured safety rules."""
 
-    return SafetyRuleEngine([MissingPpeRule(config.missing_ppe)])
+    return SafetyRuleEngine(
+        [
+            MissingPpeRule(config.missing_ppe),
+            PersonForkliftProximityRule(config.person_forklift_proximity),
+        ]
+    )

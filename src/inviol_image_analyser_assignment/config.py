@@ -72,12 +72,22 @@ class MissingPpeRuleConfig(BaseModel):
         return required_ppe
 
 
+class PersonForkliftProximityRuleConfig(BaseModel):
+    """Settings used to identify unsafe person-forklift proximity."""
+
+    model_config: ClassVar[ConfigDict] = ConfigDict(frozen=True)
+
+    minimum_person_overlap_with_forklift: float = Field(gt=0.0, le=1.0)
+    maximum_normalized_distance: float = Field(gt=0.0, le=1.0)
+
+
 class SafetyRulesConfig(BaseModel):
     """Runtime settings for the workplace safety-rule engine."""
 
     model_config: ClassVar[ConfigDict] = ConfigDict(frozen=True)
 
     missing_ppe: MissingPpeRuleConfig
+    person_forklift_proximity: PersonForkliftProximityRuleConfig
 
 
 class AnalysisConfig(BaseModel):

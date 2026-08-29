@@ -6,11 +6,11 @@
   "targets": {
     "person": {
       "prompt": "person",
-      "confidence_threshold": 0.04
+      "confidence_threshold": 0.2
     },
     "forklift": {
       "prompt": "material handling vehicle",
-      "confidence_threshold": 0.04
+      "confidence_threshold": 0.03
     },
     "safety_hat": {
       "prompt": "safety hat",

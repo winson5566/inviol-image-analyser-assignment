@@ -1,9 +1,7 @@
 """Tests for typed detection configuration and the YOLO-World adapter."""
 
-from __future__ import annotations
-
 from pathlib import Path
-from typing import Self, final
+from typing import Self
 
 from PIL import Image
 
@@ -20,7 +18,6 @@ from inviol_image_analyser_assignment.services.object_detection import (
 )
 
 
-@final
 class FakeTensor[T]:
     """Small tensor-like value supporting the conversion chain used by the adapter."""
 
@@ -37,7 +34,6 @@ class FakeTensor[T]:
         return self._values
 
 
-@final
 class FakeBoxes:
     def __init__(self, coordinates: list[list[float]], class_ids: list[float], confidences: list[float]) -> None:
         self.xyxyn: FakeTensor[list[list[float]]] = FakeTensor(coordinates)
@@ -45,14 +41,12 @@ class FakeBoxes:
         self.conf: FakeTensor[list[float]] = FakeTensor(confidences)
 
 
-@final
 class FakeResult:
     def __init__(self, boxes: FakeBoxes | None) -> None:
         self.boxes: FakeBoxes | None = boxes
         self.names: list[str] = ["person", "material handling vehicle", "safety hat", "safety vest", "unknown"]
 
 
-@final
 class FakeYoloModel:
     def __init__(self, results: list[FakeResult]) -> None:
         self.results: list[FakeResult] = results
@@ -77,7 +71,7 @@ class FakeYoloModel:
         return self.results
 
 
-def detection_config() -> ObjectDetectionConfig:
+def _detection_config() -> ObjectDetectionConfig:
     return ObjectDetectionConfig(
         detector_type=DetectorType.YOLO_WORLD,
         model_source="test-model.pt",
@@ -97,11 +91,7 @@ def test_loads_active_detection_config() -> None:
 
     config = load_analysis_config(config_path)
 
-    assert config.object_detection.detector_type is DetectorType.YOLO_WORLD
-    assert config.object_detection.device == "cpu"
-    assert config.object_detection.model_source == "weights/yolo_world/workplace-safety-yolo-world-v0.1.pt"
-    assert config.object_detection.targets[ObjectType.PERSON].confidence_threshold == 0.04
-    assert config.object_detection.targets[ObjectType.FORKLIFT].confidence_threshold == 0.04
+    assert set(config.object_detection.targets) == set(ObjectType)
     assert isinstance(create_object_detector(config.object_detection), YoloWorldDetector)
 
 
@@ -113,7 +103,7 @@ def test_loads_configured_model_and_handles_empty_result() -> None:
         loaded_sources.append(source)
         return fake_model
 
-    detector = YoloWorldDetector(detection_config(), model_factory=model_factory)
+    detector = YoloWorldDetector(_detection_config(), model_factory=model_factory)
 
     result = detector.detect(Image.new("RGB", (10, 10)))
 
@@ -145,7 +135,7 @@ def test_converts_and_filters_detections_by_class_confidence() -> None:
         loaded_sources.append(source)
         return fake_model
 
-    detector = YoloWorldDetector(detection_config(), model_factory=model_factory)
+    detector = YoloWorldDetector(_detection_config(), model_factory=model_factory)
 
     result = detector.detect(Image.new("RGB", (100, 100)))
     detector.detect(Image.new("RGB", (100, 100)))

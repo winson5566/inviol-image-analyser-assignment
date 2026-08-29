@@ -6,6 +6,7 @@ from inviol_image_analyser_assignment.services.object_detection import (
 )
 from inviol_image_analyser_assignment.services.safety_detection import (
     MissingPpeRule,
+    PersonForkliftProximityRule,
     SafetyRule,
     SafetyRuleEngine,
     create_safety_rule_engine,
@@ -15,6 +16,7 @@ __all__ = [
     "GroundingDinoDetector",
     "MissingPpeRule",
     "ObjectDetector",
+    "PersonForkliftProximityRule",
     "SafetyRule",
     "SafetyRuleEngine",
     "YoloWorldDetector",

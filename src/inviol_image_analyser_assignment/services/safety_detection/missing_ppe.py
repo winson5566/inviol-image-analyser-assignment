@@ -10,6 +10,7 @@ from inviol_image_analyser_assignment.models import (
     ObjectType,
     SafetyEvent,
 )
+from inviol_image_analyser_assignment.services.object_detection.geometry import bounding_box_overlap_fraction
 
 
 @final
@@ -25,6 +26,9 @@ class MissingPpeRule:
         """Return one event for each person missing any required PPE."""
 
         people = [detection for detection in detection_result.detections if detection.object_type is ObjectType.PERSON]
+        forklifts = [
+            detection for detection in detection_result.detections if detection.object_type is ObjectType.FORKLIFT
+        ]
         associated_ppe: list[list[Detection]] = [[] for _ in people]
 
         for ppe in detection_result.detections:
@@ -36,6 +40,8 @@ class MissingPpeRule:
 
         events: list[SafetyEvent] = []
         for person, matched_ppe in zip(people, associated_ppe, strict=True):
+            if self._is_forklift_operator(person, forklifts):
+                continue
             matched_types = {ppe.object_type for ppe in matched_ppe}
             detected_types = [object_type for object_type in self._config.required_ppe if object_type in matched_types]
             missing_types = [
@@ -57,6 +63,15 @@ class MissingPpeRule:
             )
         return events
 
+    def _is_forklift_operator(self, person: Detection, forklifts: list[Detection]) -> bool:
+        if not self._config.exclude_forklift_operators:
+            return False
+        return any(
+            bounding_box_overlap_fraction(person.bounding_box, forklift.bounding_box)
+            >= self._config.minimum_person_overlap_with_forklift
+            for forklift in forklifts
+        )
+
     def _best_matching_person(self, ppe: Detection, people: list[Detection]) -> int | None:
         overlaps = [
             (_overlap_with_person(ppe.bounding_box, person.bounding_box), -index, index)
@@ -73,8 +88,4 @@ class MissingPpeRule:
 def _overlap_with_person(ppe: BoundingBox, person: BoundingBox) -> float:
     """Return the fraction of a PPE box contained by a person's box."""
 
-    intersection_width = max(0.0, min(ppe.x_max, person.x_max) - max(ppe.x_min, person.x_min))
-    intersection_height = max(0.0, min(ppe.y_max, person.y_max) - max(ppe.y_min, person.y_min))
-    intersection = intersection_width * intersection_height
-    ppe_area = (ppe.x_max - ppe.x_min) * (ppe.y_max - ppe.y_min)
-    return intersection / ppe_area
+    return bounding_box_overlap_fraction(ppe, person)

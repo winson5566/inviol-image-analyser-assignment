@@ -1,4 +1,9 @@
-from inviol_image_analyser_assignment.models.analysis_result import AnalysisResult
+from inviol_image_analyser_assignment.models.analysis_result import (
+    AnalysisResult,
+    RiskEvent,
+    RiskLevel,
+    RiskRating,
+)
 from inviol_image_analyser_assignment.models.object_detection import (
     BoundingBox,
     Detection,
@@ -18,6 +23,9 @@ __all__ = [
     "ImageDimensions",
     "ObjectDetectionResult",
     "ObjectType",
+    "RiskEvent",
+    "RiskLevel",
+    "RiskRating",
     "SafetyDetectionResult",
     "SafetyEvent",
 ]

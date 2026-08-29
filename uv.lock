@@ -534,6 +534,7 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "basedpyright" },
+    { name = "httpx" },
     { name = "pytest" },
     { name = "ruff" },
 ]
@@ -558,6 +559,7 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "basedpyright", specifier = ">=1.31.7" },
+    { name = "httpx", specifier = ">=0.27.0" },
     { name = "pytest", specifier = ">=8.4.2" },
     { name = "ruff", specifier = ">=0.14.0" },
 ]

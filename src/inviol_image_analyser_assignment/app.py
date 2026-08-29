@@ -10,6 +10,7 @@ from starlette.concurrency import run_in_threadpool
 from inviol_image_analyser_assignment.config import AnalysisConfig, load_analysis_config
 from inviol_image_analyser_assignment.models import AnalysisResult, ObjectDetectionResult, SafetyDetectionResult
 from inviol_image_analyser_assignment.services.object_detection import ObjectDetector, create_object_detector
+from inviol_image_analyser_assignment.services.risk_assessment import RiskAssessmentService
 from inviol_image_analyser_assignment.services.safety_detection import SafetyRuleEngine, create_safety_rule_engine
 
 app = FastAPI()
@@ -18,13 +19,6 @@ app = FastAPI()
 @app.get("/healthcheck")
 async def get_healthcheck():
     return {"status": "healthy"}
-
-
-@app.post("/analyse")
-async def post_analyse(file: UploadFile) -> AnalysisResult:
-    # TODO: Implement the actual image analysis logic
-    print(f"Received file: {file.filename}")
-    return AnalysisResult(risk_rating=5)
 
 
 @cache
@@ -47,6 +41,13 @@ def get_safety_rule_engine() -> SafetyRuleEngine:
     """Build and cache the safety rules selected by the active configuration."""
 
     return create_safety_rule_engine(_get_analysis_config().safety_rules)
+
+
+@cache
+def get_risk_assessment_service() -> RiskAssessmentService:
+    """Build and cache the configured risk-assessment policy."""
+
+    return RiskAssessmentService(_get_analysis_config().risk_assessment)
 
 
 def _decode_image(content: bytes) -> Image.Image:
@@ -86,3 +87,18 @@ async def post_safety_detection(
     image = _decode_image(await file.read())
     detection_result = await run_in_threadpool(detector.detect, image)
     return await run_in_threadpool(rule_engine.evaluate, detection_result)
+
+
+@app.post("/analyse")
+async def post_analyse(
+    file: UploadFile,
+    detector: Annotated[ObjectDetector, Depends(get_object_detector)],
+    rule_engine: Annotated[SafetyRuleEngine, Depends(get_safety_rule_engine)],
+    risk_assessment: Annotated[RiskAssessmentService, Depends(get_risk_assessment_service)],
+) -> AnalysisResult:
+    """Run object detection, safety rules, and structured risk assessment."""
+
+    image = _decode_image(await file.read())
+    detection_result = await run_in_threadpool(detector.detect, image)
+    safety_result = await run_in_threadpool(rule_engine.evaluate, detection_result)
+    return await run_in_threadpool(risk_assessment.assess, detection_result, safety_result)

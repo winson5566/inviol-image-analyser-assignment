@@ -11,6 +11,7 @@ from inviol_image_analyser_assignment.models import (
     ObjectType,
     SafetyEvent,
 )
+from inviol_image_analyser_assignment.services.object_detection.geometry import bounding_box_overlap_fraction
 
 
 @final
@@ -34,7 +35,7 @@ class PersonForkliftProximityRule:
         for person in people:
             for forklift in forklifts:
                 if (
-                    _person_overlap_with_forklift(person.bounding_box, forklift.bounding_box)
+                    bounding_box_overlap_fraction(person.bounding_box, forklift.bounding_box)
                     >= self._config.minimum_person_overlap_with_forklift
                 ):
                     continue
@@ -57,16 +58,6 @@ class PersonForkliftProximityRule:
                     )
                 )
         return events
-
-
-def _person_overlap_with_forklift(person: BoundingBox, forklift: BoundingBox) -> float:
-    """Return the fraction of a person's box contained by a forklift's box."""
-
-    intersection_width = max(0.0, min(person.x_max, forklift.x_max) - max(person.x_min, forklift.x_min))
-    intersection_height = max(0.0, min(person.y_max, forklift.y_max) - max(person.y_min, forklift.y_min))
-    intersection = intersection_width * intersection_height
-    person_area = (person.x_max - person.x_min) * (person.y_max - person.y_min)
-    return intersection / person_area
 
 
 def _normalized_bounding_box_distance(

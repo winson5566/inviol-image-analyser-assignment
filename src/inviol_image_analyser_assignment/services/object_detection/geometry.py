@@ -16,6 +16,16 @@ def normalized_bounding_box(coordinates: Sequence[float]) -> BoundingBox | None:
     return BoundingBox(x_min=x_min, y_min=y_min, x_max=x_max, y_max=y_max)
 
 
+def bounding_box_overlap_fraction(subject: BoundingBox, container: BoundingBox) -> float:
+    """Return the fraction of a subject box contained by another box."""
+
+    intersection_width = max(0.0, min(subject.x_max, container.x_max) - max(subject.x_min, container.x_min))
+    intersection_height = max(0.0, min(subject.y_max, container.y_max) - max(subject.y_min, container.y_min))
+    intersection = intersection_width * intersection_height
+    subject_area = (subject.x_max - subject.x_min) * (subject.y_max - subject.y_min)
+    return intersection / subject_area
+
+
 def class_aware_nms(detections: Sequence[Detection], iou_threshold: float) -> list[Detection]:
     """Suppress lower-confidence overlapping detections of the same object type."""
 

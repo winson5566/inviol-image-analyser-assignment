@@ -10,7 +10,7 @@
     },
     "forklift": {
       "prompt": "material handling vehicle",
-      "confidence_threshold": 0.03
+      "confidence_threshold": 0.035
     },
     "safety_hat": {
       "prompt": "safety hat",

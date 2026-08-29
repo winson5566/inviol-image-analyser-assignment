@@ -34,6 +34,12 @@ class SafetyRuleEngine:
             raise ValueError("safety rule types must be unique")
         self._rules: tuple[SafetyRule, ...] = tuple(rules)
 
+    @property
+    def supported_rule_types(self) -> tuple[str, ...]:
+        """Return the registered safety checks in evaluation order."""
+
+        return tuple(rule.rule_type for rule in self._rules)
+
     def evaluate(self, detection_result: ObjectDetectionResult) -> SafetyDetectionResult:
         """Run all registered rules and combine their events."""
 

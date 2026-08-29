@@ -1,0 +1,605 @@
+{
+  "created_at": "2026-08-29T08:52:06+00:00",
+  "config": "config/analysis.json",
+  "detector": "yolo_world",
+  "model_source": "weights/yolo_world/workplace-safety-yolo-world-v0.1.pt",
+  "supported_rule_types": [
+    "missing_required_ppe",
+    "person_near_forklift"
+  ],
+  "results": [
+    {
+      "image": "image_01.png",
+      "elapsed_ms": 2592.758,
+      "detection_latency_ms": 2593,
+      "annotated_image": "annotated/image_01.jpg",
+      "analysis": {
+        "image": {
+          "width": 1536,
+          "height": 1024
+        },
+        "overall_risk": {
+          "score": 9.0,
+          "level": "high"
+        },
+        "detected_objects": [
+          {
+            "object_type": "person",
+            "confidence": 0.922,
+            "bounding_box": {
+              "x_min": 0.2084,
+              "y_min": 0.3395,
+              "x_max": 0.3952,
+              "y_max": 0.917
+            }
+          },
+          {
+            "object_type": "person",
+            "confidence": 0.605,
+            "bounding_box": {
+              "x_min": 0.4596,
+              "y_min": 0.1639,
+              "x_max": 0.5116,
+              "y_max": 0.353
+            }
+          },
+          {
+            "object_type": "forklift",
+            "confidence": 0.549,
+            "bounding_box": {
+              "x_min": 0.4097,
+              "y_min": 0.1072,
+              "x_max": 0.5572,
+              "y_max": 0.6582
+            }
+          },
+          {
+            "object_type": "safety_hat",
+            "confidence": 0.391,
+            "bounding_box": {
+              "x_min": 0.2941,
+              "y_min": 0.3421,
+              "x_max": 0.3507,
+              "y_max": 0.3973
+            }
+          },
+          {
+            "object_type": "safety_vest",
+            "confidence": 0.152,
+            "bounding_box": {
+              "x_min": 0.3,
+              "y_min": 0.4337,
+              "x_max": 0.3834,
+              "y_max": 0.6508
+            }
+          }
+        ],
+        "events": [
+          {
+            "rule_type": "person_near_forklift",
+            "risk": {
+              "score": 9.0,
+              "level": "high"
+            },
+            "subject": {
+              "object_type": "person",
+              "confidence": 0.922,
+              "bounding_box": {
+                "x_min": 0.2084,
+                "y_min": 0.3395,
+                "x_max": 0.3952,
+                "y_max": 0.917
+              }
+            },
+            "related_objects": [
+              {
+                "object_type": "forklift",
+                "confidence": 0.549,
+                "bounding_box": {
+                  "x_min": 0.4097,
+                  "y_min": 0.1072,
+                  "x_max": 0.5572,
+                  "y_max": 0.6582
+                }
+              }
+            ],
+            "attributes": {
+              "normalized_distance": 0.0121,
+              "maximum_normalized_distance": 0.08
+            }
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "image": "image_02.png",
+      "elapsed_ms": 64.806,
+      "detection_latency_ms": 65,
+      "annotated_image": "annotated/image_02.jpg",
+      "analysis": {
+        "image": {
+          "width": 1536,
+          "height": 1024
+        },
+        "overall_risk": {
+          "score": 0.0,
+          "level": "low"
+        },
+        "detected_objects": [
+          {
+            "object_type": "person",
+            "confidence": 0.927,
+            "bounding_box": {
+              "x_min": 0.4872,
+              "y_min": 0.155,
+              "x_max": 0.6249,
+              "y_max": 0.8708
+            }
+          },
+          {
+            "object_type": "person",
+            "confidence": 0.903,
+            "bounding_box": {
+              "x_min": 0.3391,
+              "y_min": 0.1805,
+              "x_max": 0.4637,
+              "y_max": 0.8874
+            }
+          },
+          {
+            "object_type": "safety_hat",
+            "confidence": 0.544,
+            "bounding_box": {
+              "x_min": 0.5194,
+              "y_min": 0.1549,
+              "x_max": 0.583,
+              "y_max": 0.2222
+            }
+          },
+          {
+            "object_type": "safety_hat",
+            "confidence": 0.424,
+            "bounding_box": {
+              "x_min": 0.375,
+              "y_min": 0.1804,
+              "x_max": 0.448,
+              "y_max": 0.2496
+            }
+          },
+          {
+            "object_type": "safety_vest",
+            "confidence": 0.075,
+            "bounding_box": {
+              "x_min": 0.5115,
+              "y_min": 0.2667,
+              "x_max": 0.5978,
+              "y_max": 0.5271
+            }
+          },
+          {
+            "object_type": "safety_vest",
+            "confidence": 0.056,
+            "bounding_box": {
+              "x_min": 0.3398,
+              "y_min": 0.2938,
+              "x_max": 0.4503,
+              "y_max": 0.5597
+            }
+          }
+        ],
+        "events": []
+      },
+      "error": null
+    },
+    {
+      "image": "image_03.png",
+      "elapsed_ms": 58.725,
+      "detection_latency_ms": 59,
+      "annotated_image": "annotated/image_03.jpg",
+      "analysis": {
+        "image": {
+          "width": 1536,
+          "height": 1024
+        },
+        "overall_risk": {
+          "score": 9.0,
+          "level": "high"
+        },
+        "detected_objects": [
+          {
+            "object_type": "person",
+            "confidence": 0.906,
+            "bounding_box": {
+              "x_min": 0.2384,
+              "y_min": 0.3055,
+              "x_max": 0.3716,
+              "y_max": 0.9754
+            }
+          },
+          {
+            "object_type": "person",
+            "confidence": 0.505,
+            "bounding_box": {
+              "x_min": 0.6554,
+              "y_min": 0.3704,
+              "x_max": 0.7259,
+              "y_max": 0.5648
+            }
+          },
+          {
+            "object_type": "safety_vest",
+            "confidence": 0.154,
+            "bounding_box": {
+              "x_min": 0.2631,
+              "y_min": 0.3987,
+              "x_max": 0.3444,
+              "y_max": 0.632
+            }
+          },
+          {
+            "object_type": "safety_hat",
+            "confidence": 0.062,
+            "bounding_box": {
+              "x_min": 0.6677,
+              "y_min": 0.371,
+              "x_max": 0.6914,
+              "y_max": 0.3981
+            }
+          },
+          {
+            "object_type": "forklift",
+            "confidence": 0.036,
+            "bounding_box": {
+              "x_min": 0.4564,
+              "y_min": 0.2884,
+              "x_max": 0.7884,
+              "y_max": 0.8529
+            }
+          }
+        ],
+        "events": [
+          {
+            "rule_type": "missing_required_ppe",
+            "risk": {
+              "score": 3.0,
+              "level": "low"
+            },
+            "subject": {
+              "object_type": "person",
+              "confidence": 0.906,
+              "bounding_box": {
+                "x_min": 0.2384,
+                "y_min": 0.3055,
+                "x_max": 0.3716,
+                "y_max": 0.9754
+              }
+            },
+            "related_objects": [
+              {
+                "object_type": "safety_vest",
+                "confidence": 0.154,
+                "bounding_box": {
+                  "x_min": 0.2631,
+                  "y_min": 0.3987,
+                  "x_max": 0.3444,
+                  "y_max": 0.632
+                }
+              }
+            ],
+            "attributes": {
+              "required_ppe": [
+                "safety_hat",
+                "safety_vest"
+              ],
+              "detected_ppe": [
+                "safety_vest"
+              ],
+              "missing_ppe": [
+                "safety_hat"
+              ]
+            }
+          },
+          {
+            "rule_type": "person_near_forklift",
+            "risk": {
+              "score": 9.0,
+              "level": "high"
+            },
+            "subject": {
+              "object_type": "person",
+              "confidence": 0.906,
+              "bounding_box": {
+                "x_min": 0.2384,
+                "y_min": 0.3055,
+                "x_max": 0.3716,
+                "y_max": 0.9754
+              }
+            },
+            "related_objects": [
+              {
+                "object_type": "forklift",
+                "confidence": 0.036,
+                "bounding_box": {
+                  "x_min": 0.4564,
+                  "y_min": 0.2884,
+                  "x_max": 0.7884,
+                  "y_max": 0.8529
+                }
+              }
+            ],
+            "attributes": {
+              "normalized_distance": 0.0706,
+              "maximum_normalized_distance": 0.08
+            }
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "image": "image_04.png",
+      "elapsed_ms": 64.49,
+      "detection_latency_ms": 64,
+      "annotated_image": "annotated/image_04.jpg",
+      "analysis": {
+        "image": {
+          "width": 1536,
+          "height": 1024
+        },
+        "overall_risk": {
+          "score": 6.0,
+          "level": "medium"
+        },
+        "detected_objects": [
+          {
+            "object_type": "person",
+            "confidence": 0.94,
+            "bounding_box": {
+              "x_min": 0.2388,
+              "y_min": 0.2214,
+              "x_max": 0.3828,
+              "y_max": 0.9631
+            }
+          },
+          {
+            "object_type": "person",
+            "confidence": 0.938,
+            "bounding_box": {
+              "x_min": 0.573,
+              "y_min": 0.2207,
+              "x_max": 0.7217,
+              "y_max": 0.978
+            }
+          },
+          {
+            "object_type": "safety_hat",
+            "confidence": 0.296,
+            "bounding_box": {
+              "x_min": 0.6137,
+              "y_min": 0.2203,
+              "x_max": 0.667,
+              "y_max": 0.2786
+            }
+          },
+          {
+            "object_type": "safety_vest",
+            "confidence": 0.185,
+            "bounding_box": {
+              "x_min": 0.5942,
+              "y_min": 0.3383,
+              "x_max": 0.6949,
+              "y_max": 0.5971
+            }
+          }
+        ],
+        "events": [
+          {
+            "rule_type": "missing_required_ppe",
+            "risk": {
+              "score": 6.0,
+              "level": "medium"
+            },
+            "subject": {
+              "object_type": "person",
+              "confidence": 0.94,
+              "bounding_box": {
+                "x_min": 0.2388,
+                "y_min": 0.2214,
+                "x_max": 0.3828,
+                "y_max": 0.9631
+              }
+            },
+            "related_objects": [],
+            "attributes": {
+              "required_ppe": [
+                "safety_hat",
+                "safety_vest"
+              ],
+              "detected_ppe": [],
+              "missing_ppe": [
+                "safety_hat",
+                "safety_vest"
+              ]
+            }
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "image": "image_05.png",
+      "elapsed_ms": 64.605,
+      "detection_latency_ms": 65,
+      "annotated_image": "annotated/image_05.jpg",
+      "analysis": {
+        "image": {
+          "width": 1536,
+          "height": 1024
+        },
+        "overall_risk": {
+          "score": 9.0,
+          "level": "high"
+        },
+        "detected_objects": [
+          {
+            "object_type": "person",
+            "confidence": 0.937,
+            "bounding_box": {
+              "x_min": 0.1878,
+              "y_min": 0.3032,
+              "x_max": 0.3348,
+              "y_max": 1.0
+            }
+          },
+          {
+            "object_type": "person",
+            "confidence": 0.879,
+            "bounding_box": {
+              "x_min": 0.5176,
+              "y_min": 0.2981,
+              "x_max": 0.6413,
+              "y_max": 0.7571
+            }
+          },
+          {
+            "object_type": "safety_hat",
+            "confidence": 0.415,
+            "bounding_box": {
+              "x_min": 0.237,
+              "y_min": 0.3053,
+              "x_max": 0.295,
+              "y_max": 0.3745
+            }
+          },
+          {
+            "object_type": "forklift",
+            "confidence": 0.265,
+            "bounding_box": {
+              "x_min": 0.3453,
+              "y_min": 0.2583,
+              "x_max": 0.718,
+              "y_max": 1.0
+            }
+          },
+          {
+            "object_type": "safety_vest",
+            "confidence": 0.151,
+            "bounding_box": {
+              "x_min": 0.2158,
+              "y_min": 0.4355,
+              "x_max": 0.3052,
+              "y_max": 0.6921
+            }
+          }
+        ],
+        "events": [
+          {
+            "rule_type": "person_near_forklift",
+            "risk": {
+              "score": 9.0,
+              "level": "high"
+            },
+            "subject": {
+              "object_type": "person",
+              "confidence": 0.937,
+              "bounding_box": {
+                "x_min": 0.1878,
+                "y_min": 0.3032,
+                "x_max": 0.3348,
+                "y_max": 1.0
+              }
+            },
+            "related_objects": [
+              {
+                "object_type": "forklift",
+                "confidence": 0.265,
+                "bounding_box": {
+                  "x_min": 0.3453,
+                  "y_min": 0.2583,
+                  "x_max": 0.718,
+                  "y_max": 1.0
+                }
+              }
+            ],
+            "attributes": {
+              "normalized_distance": 0.0087,
+              "maximum_normalized_distance": 0.08
+            }
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "image": "image_06.png",
+      "elapsed_ms": 85.806,
+      "detection_latency_ms": 86,
+      "annotated_image": "annotated/image_06.jpg",
+      "analysis": {
+        "image": {
+          "width": 1536,
+          "height": 1024
+        },
+        "overall_risk": {
+          "score": 0.0,
+          "level": "low"
+        },
+        "detected_objects": [
+          {
+            "object_type": "person",
+            "confidence": 0.963,
+            "bounding_box": {
+              "x_min": 0.6057,
+              "y_min": 0.1207,
+              "x_max": 0.796,
+              "y_max": 1.0
+            }
+          },
+          {
+            "object_type": "person",
+            "confidence": 0.595,
+            "bounding_box": {
+              "x_min": 0.3642,
+              "y_min": 0.2391,
+              "x_max": 0.4502,
+              "y_max": 0.4134
+            }
+          },
+          {
+            "object_type": "safety_hat",
+            "confidence": 0.478,
+            "bounding_box": {
+              "x_min": 0.668,
+              "y_min": 0.1201,
+              "x_max": 0.738,
+              "y_max": 0.1968
+            }
+          },
+          {
+            "object_type": "forklift",
+            "confidence": 0.284,
+            "bounding_box": {
+              "x_min": 0.3331,
+              "y_min": 0.2005,
+              "x_max": 0.4848,
+              "y_max": 0.6556
+            }
+          },
+          {
+            "object_type": "safety_vest",
+            "confidence": 0.09,
+            "bounding_box": {
+              "x_min": 0.6366,
+              "y_min": 0.2679,
+              "x_max": 0.7605,
+              "y_max": 0.5762
+            }
+          }
+        ],
+        "events": []
+      },
+      "error": null
+    }
+  ]
+}

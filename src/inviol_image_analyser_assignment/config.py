@@ -56,6 +56,8 @@ class MissingPpeRuleConfig(BaseModel):
 
     required_ppe: tuple[ObjectType, ...] = Field(min_length=1)
     minimum_ppe_overlap_with_person: float = Field(ge=0.0, le=1.0)
+    exclude_forklift_operators: bool
+    minimum_person_overlap_with_forklift: float = Field(gt=0.0, le=1.0)
 
     @field_validator("required_ppe")
     @classmethod
@@ -81,6 +83,62 @@ class PersonForkliftProximityRuleConfig(BaseModel):
     maximum_normalized_distance: float = Field(gt=0.0, le=1.0)
 
 
+class RiskLevelThresholdsConfig(BaseModel):
+    """Minimum scores required to enter the medium and high risk levels."""
+
+    model_config: ClassVar[ConfigDict] = ConfigDict(frozen=True)
+
+    medium_min_score: float = Field(gt=0.0, le=10.0)
+    high_min_score: float = Field(gt=0.0, le=10.0)
+
+    @model_validator(mode="after")
+    def validate_threshold_order(self) -> RiskLevelThresholdsConfig:
+        """Require the medium threshold to be lower than the high threshold."""
+
+        if self.medium_min_score >= self.high_min_score:
+            raise ValueError("medium risk minimum must be less than high risk minimum")
+        return self
+
+
+class MissingPpeRiskConfig(BaseModel):
+    """Risk scores assigned to missing required PPE."""
+
+    model_config: ClassVar[ConfigDict] = ConfigDict(frozen=True)
+
+    missing_safety_hat_score: float = Field(ge=0.0, le=10.0)
+    missing_safety_vest_score: float = Field(ge=0.0, le=10.0)
+    multiple_missing_ppe_score: float = Field(ge=0.0, le=10.0)
+
+    @model_validator(mode="after")
+    def validate_multiple_missing_ppe_score(self) -> MissingPpeRiskConfig:
+        """Prevent multiple missing items from reducing the assessed risk."""
+
+        if self.multiple_missing_ppe_score < max(
+            self.missing_safety_hat_score,
+            self.missing_safety_vest_score,
+        ):
+            raise ValueError("multiple-missing PPE score must not be lower than an individual PPE score")
+        return self
+
+
+class PersonForkliftProximityRiskConfig(BaseModel):
+    """Risk score assigned to unsafe person-forklift proximity."""
+
+    model_config: ClassVar[ConfigDict] = ConfigDict(frozen=True)
+
+    score: float = Field(ge=0.0, le=10.0)
+
+
+class RiskAssessmentConfig(BaseModel):
+    """Runtime policy used to assess safety events."""
+
+    model_config: ClassVar[ConfigDict] = ConfigDict(frozen=True)
+
+    risk_level_thresholds: RiskLevelThresholdsConfig
+    missing_ppe: MissingPpeRiskConfig
+    person_forklift_proximity: PersonForkliftProximityRiskConfig
+
+
 class SafetyRulesConfig(BaseModel):
     """Runtime settings for the workplace safety-rule engine."""
 
@@ -90,6 +148,28 @@ class SafetyRulesConfig(BaseModel):
     person_forklift_proximity: PersonForkliftProximityRuleConfig
 
 
+class MissingPpeRuleReleaseConfig(MissingPpeRuleConfig):
+    """Versioned missing-PPE rule settings and risk policy."""
+
+    risk_assessment: MissingPpeRiskConfig
+
+
+class PersonForkliftProximityRuleReleaseConfig(PersonForkliftProximityRuleConfig):
+    """Versioned proximity-rule settings and risk policy."""
+
+    risk_assessment: PersonForkliftProximityRiskConfig
+
+
+class SafetyRulesReleaseConfig(BaseModel):
+    """Complete versioned safety-rule and risk-assessment configuration."""
+
+    model_config: ClassVar[ConfigDict] = ConfigDict(frozen=True)
+
+    risk_level_thresholds: RiskLevelThresholdsConfig
+    missing_ppe: MissingPpeRuleReleaseConfig
+    person_forklift_proximity: PersonForkliftProximityRuleReleaseConfig
+
+
 class AnalysisConfig(BaseModel):
     """Top-level configuration for the image-analysis pipeline."""
 
@@ -97,10 +177,11 @@ class AnalysisConfig(BaseModel):
 
     object_detection: ObjectDetectionConfig
     safety_rules: SafetyRulesConfig
+    risk_assessment: RiskAssessmentConfig
 
 
 class AnalysisConfigReference(BaseModel):
-    """Pointer from analysis settings to an immutable object-detection release."""
+    """Pointers from analysis settings to versioned service configurations."""
 
     model_config: ClassVar[ConfigDict] = ConfigDict(frozen=True)
 
@@ -114,21 +195,30 @@ def load_object_detection_config(path: Path) -> ObjectDetectionConfig:
     return ObjectDetectionConfig.model_validate_json(path.read_text(encoding="utf-8"))
 
 
-def load_safety_rules_config(path: Path) -> SafetyRulesConfig:
+def load_safety_rules_config(path: Path) -> SafetyRulesReleaseConfig:
     """Load and validate one versioned safety-rules configuration."""
 
-    return SafetyRulesConfig.model_validate_json(path.read_text(encoding="utf-8"))
+    return SafetyRulesReleaseConfig.model_validate_json(path.read_text(encoding="utf-8"))
 
 
 def load_analysis_config(path: Path) -> AnalysisConfig:
-    """Load the active detector and safety-rule releases selected for analysis."""
+    """Load the active detector, safety-rule, and risk-assessment configuration."""
 
     reference = AnalysisConfigReference.model_validate_json(path.read_text(encoding="utf-8"))
     object_detection_path = _resolve_config_path(path, reference.object_detection_config)
     safety_rules_path = _resolve_config_path(path, reference.safety_rules_config)
+    safety_rules_release = load_safety_rules_config(safety_rules_path)
     return AnalysisConfig(
         object_detection=load_object_detection_config(object_detection_path),
-        safety_rules=load_safety_rules_config(safety_rules_path),
+        safety_rules=SafetyRulesConfig(
+            missing_ppe=safety_rules_release.missing_ppe,
+            person_forklift_proximity=safety_rules_release.person_forklift_proximity,
+        ),
+        risk_assessment=RiskAssessmentConfig(
+            risk_level_thresholds=safety_rules_release.risk_level_thresholds,
+            missing_ppe=safety_rules_release.missing_ppe.risk_assessment,
+            person_forklift_proximity=safety_rules_release.person_forklift_proximity.risk_assessment,
+        ),
     )
 
 

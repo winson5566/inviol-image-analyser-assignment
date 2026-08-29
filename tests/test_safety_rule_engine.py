@@ -21,6 +21,8 @@ from inviol_image_analyser_assignment.services.safety_detection import (
 _MISSING_PPE_CONFIG = MissingPpeRuleConfig(
     required_ppe=(ObjectType.SAFETY_HAT, ObjectType.SAFETY_VEST),
     minimum_ppe_overlap_with_person=0.5,
+    exclude_forklift_operators=True,
+    minimum_person_overlap_with_forklift=0.8,
 )
 _PROXIMITY_CONFIG = PersonForkliftProximityRuleConfig(
     minimum_person_overlap_with_forklift=0.8,
@@ -73,6 +75,19 @@ def test_reports_person_missing_required_ppe() -> None:
         "detected_ppe": ["safety_hat"],
         "missing_ppe": ["safety_vest"],
     }
+
+
+def test_missing_ppe_operator_exclusion_can_be_configured() -> None:
+    operator = _detection(ObjectType.PERSON, (0.3, 0.2, 0.5, 0.7))
+    forklift = _detection(ObjectType.FORKLIFT, (0.2, 0.1, 0.6, 0.9))
+    result = _detection_result(operator, forklift)
+
+    assert MissingPpeRule(_MISSING_PPE_CONFIG).evaluate(result) == []
+
+    disabled_config = _MISSING_PPE_CONFIG.model_copy(update={"exclude_forklift_operators": False})
+    events = MissingPpeRule(disabled_config).evaluate(result)
+    assert len(events) == 1
+    assert events[0].subject == operator
 
 
 def test_engine_reports_unsafe_person_forklift_proximity() -> None:

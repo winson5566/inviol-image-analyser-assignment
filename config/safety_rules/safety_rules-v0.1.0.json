@@ -9,14 +9,19 @@
       "safety_vest"
     ],
     "minimum_ppe_overlap_with_person": 0.5,
+    "exclude_forklift_operators": true,
+    "minimum_person_overlap_with_forklift": 0.8,
     "risk_assessment": {
-      "missing_safety_hat_score": 8,
-      "missing_safety_vest_score": 6,
-      "multiple_missing_ppe_score": 9
+      "missing_safety_hat_score": 3,
+      "missing_safety_vest_score": 2,
+      "multiple_missing_ppe_score": 6
     }
   },
   "person_forklift_proximity": {
     "minimum_person_overlap_with_forklift": 0.8,
-    "maximum_normalized_distance": 0.08
+    "maximum_normalized_distance": 0.08,
+    "risk_assessment": {
+      "score": 9
+    }
   }
 }
